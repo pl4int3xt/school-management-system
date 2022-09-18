@@ -3,10 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card shadow-sm">
                 <div class="card-header">{{ __('Results') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -54,7 +53,7 @@
                                                     <td>{{ $result->results }}</td>
                                                     <td>{{ $result->term_period }}</td>
                                                     <td>
-                                                        <a href="{{ url('/results_reports_index/'.$result->id) }}" class="btn btn-success rounded-pill">Details</a>
+                                                        <a href="{{ url('/results_reports_pdf/'.$result->id) }}" class="btn btn-success rounded-pill">Download</a>
                                                     </td>
                                                 </tr>
                                             @endif

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card shadow-sm">
                 <div class="card-header">{{ __('Fees') }}</div>
 
@@ -51,7 +51,7 @@
                                                     <td>{{ $fee->ref_no }}</td>
                                                     <td>{{ $fee->term_period }}</td>
                                                     <td>
-                                                        <a href="{{ url('/fees_reports_index/'.$fee->id) }}" class="btn btn-success rounded-pill">Details</a>
+                                                        <a href="{{ url('/fees_reports_pdf/'.$fee->id)}}"class="btn btn-success rounded-pill">Download</a>
                                                     </td>
                                                 </tr>
                                             @endif

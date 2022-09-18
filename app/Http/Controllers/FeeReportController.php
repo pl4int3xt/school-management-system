@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fee;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class FeeReportController extends Controller
 {
@@ -21,7 +21,7 @@ class FeeReportController extends Controller
     public function generatepdf($id){
         $fees_report = Fee::findOrFail($id);
         
-        $pdf = PDF::loadView('fees_reports.index', compact('fees_report'))->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf = PDF::loadView('fees_reports.index', compact('fees_report'));
 
         return $pdf->download('fee.pdf');
     }

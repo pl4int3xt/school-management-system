@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes([
+    'resgister' => false
+]);
 
 //Admin routes
 Route::get('/admin_index',[App\Http\Controllers\UserController::class, 'index'])->name('admin.index');
@@ -155,6 +157,7 @@ Route::get('/guardians_scores_search', 'App\Http\Controllers\GuardianScoreContro
 
 //results_reports routes
 Route::get('/results_reports_index/{id}', 'App\Http\Controllers\ResultReportController@index')->name('results_reports.index');
+Route::get('/results_reports_pdf/{id}', 'App\Http\Controllers\ResultReportController@generatepdf')->name('results_reports.generatepdf');
 
 //fees_reports routes
 Route::get('/fees_reports_index/{id}', 'App\Http\Controllers\FeeReportController@index')->name('fees_reports.index');
