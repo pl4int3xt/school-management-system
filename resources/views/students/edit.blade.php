@@ -26,9 +26,14 @@
                         <label for="parent" class="form-label">parent:</label>
                         <input type="text" class="form-control" id="parent" name="parent" required="True" value="{{ $student->parent }}">
 
-                        <label for="class" class="form-label">class:</label>
-                        <input type="text" class="form-control" id="class" name="class" required="True" value="{{ $student->class }}">
+                        <label for="class" class="form-label">Class:</label>
+                        <select id="class" class="form-select" name="class" required="True">
 
+                        @foreach($clases as $clas)
+                                <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                        @endforeach
+                                            
+                        </select>
                         <div class="modal-footer">
                             <a href="{{ url('students_index') }}" class="btn btn-success rounded-pill">close</a>
                             <button type="submit" class="btn btn-success rounded-pill">

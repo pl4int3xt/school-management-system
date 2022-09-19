@@ -6,9 +6,6 @@
         <div class="col-md-8">
             <div class="card shadow-lg" style="border-radius: 1rem;">
                 <div class="container">
-                    <!-- <div class="col-5-sm">
-                        <img src="{{ asset('img/gm.jpg') }}" class="img" alt="">
-                    </div> -->
                     <div class="d-flex justify-content-center container">
                         <img
                             src="{{ asset('img/gm.jpg') }}"
@@ -21,10 +18,8 @@
                         <div class="card-body">
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-
                                 <div class="row mb-3">
                                     <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control rounded-pill @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -64,14 +59,9 @@
 
                                 <div class="row mb-3">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary btn-block btn-user rounded-pill">
+                                        <button type="submit" class="col-md-8 btn btn-primary btn-block btn-user rounded-pill">
                                             {{ __('Login') }}
                                         </button>
-                                        <!-- @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                {{ __('Forgot Your Password?') }}
-                                            </a>
-                                        @endif -->
                                     </div>
                                 </div>
                             </form>

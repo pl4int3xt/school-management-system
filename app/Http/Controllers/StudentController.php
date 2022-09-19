@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clas;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class StudentController extends Controller
     
     public function index(){
         $students = Student::Paginate(5);
+        $clases = Clas::all();
 
-        return view('students.index', compact('students'));
+        return view('students.index', compact('students','clases'));
     }
 
     public function store(){
@@ -56,8 +58,9 @@ class StudentController extends Controller
 
     public function edit($id){
         $student = Student::findOrFail($id);
+        $clases = Clas::all();
 
-        return view('students.edit', compact('student'));
+        return view('students.edit', compact('student','clases'));
     }
 
     public function search(){

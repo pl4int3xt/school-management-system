@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow-sm">
-                <div class="card-header">{{ __('Users') }}</div>
+                <div class="card-header">{{ __('Classes') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,11 +19,11 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="container text-start">
-                                    <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#user-reg-modal">Add</a>
+                                    <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#class-reg-modal">Add</a>
                                 </div>
                             </div>
                             <div class="col text-end">
-                                <form action="{{ route('admin.search') }}" method="get">
+                                <form action="{{ route('clases.search') }}" method="get">
                                     <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
                                     <button type="submit" class="btn btn-success rounded-pill">Search</button> 
                                 </form>
@@ -45,58 +45,42 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>email</th>
-                                        <th>password</th>
-                                        <th>role</th>
+                                        <th>Other Details</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($users as $user) 
+                                    @foreach ($clases as $clas) 
                                         <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>{{ $user->password }}</td>
-                                            <td>{{ $user->role }}</td>
+                                            <td>{{ $clas->name }}</td>
+                                            <td>{{ $clas->other_details }}</td>
                                             <td>
-                                                <a href="{{ url('/admin_edit/'.$user->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/admin_destroy/'.$user->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/clases_edit/'.$clas->id) }}" class="btn btn-success rounded-pill">Edit</a>
+                                                <a href="{{ url('/clases_destroy/'.$clas->id)}}"class="btn btn-danger rounded-pill">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $users->onEachSide(1)->links() }}
+                            {{ $clases->onEachSide(1)->links() }}
                         </div>
                         <!-- registration modal -->
 
-                        <div class="modal fade" id="user-reg-modal" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal fade" id="class-reg-modal" aria-labelledby="modal-title" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modal-title">User registration</h5>
+                                        <h5 class="modal-title" id="modal-title">Class registration</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('admin.store') }}" method="post">
+                                        <form action="{{ route('clases.store') }}" method="post">
                                             @csrf
                                             <label for="name" class="form-label">Name:</label>
                                             <input type="text" class="form-control" id="name" name="name" required="True">
 
-                                            <label for="email" class="form-label">email:</label>
-                                            <input type="email" class="form-control" id="email" name="email" required="True">
-
-                                            <label for="password" class="form-label">password:</label>
-                                            <input type="password" class="form-control" id="password" name="password" required="True">
-                                            
-                                            <label for="role" class="form-label">Role:</label>
-                                            <select id="role" class="form-select" name="role" required="False">
-                                                <option value="admin">Admin</option>
-                                                <option value="teacher">Teacher</option>
-                                                <option value="guardian">Guardian</option>
-                                                <option value="finance">finance</option>
-                                                <option value="librarian">librarian</option>
-                                            </select>
+                                            <label for="other_details" class="form-label">Other details:</label>
+                                            <input type="other_details" class="form-control" id="other_details" name="other_details" required="True">
 
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success rounded-pill">

@@ -126,6 +126,14 @@ Route::get('/libraries_edit/{id}', 'App\Http\Controllers\LibraryController@edit'
 Route::put('/libraries_update/{id}', 'App\Http\Controllers\LibraryController@update')->name('libraries.update');
 Route::get('/libraries_search', 'App\Http\Controllers\LibraryController@search')->name('libraries.search');
 
+//clases routes
+Route::get('/clases_index', 'App\Http\Controllers\ClasController@index')->name('clases.index');
+Route::post('/clases_store', 'App\Http\Controllers\ClasController@store')->name('clases.store');
+Route::get('/clases_destroy/{id}', 'App\Http\Controllers\ClasController@destroy')->name('clases.destroy');
+Route::get('/clases_edit/{id}', 'App\Http\Controllers\ClasController@edit')->name('clases.edit');
+Route::put('/clases_update/{id}', 'App\Http\Controllers\ClasController@update')->name('clases.update');
+Route::get('/clases_search', 'App\Http\Controllers\ClasController@search')->name('clases.search');
+
 //guardians_results routes
 Route::get('/guardians_results_index', 'App\Http\Controllers\GuardianResultController@index')->name('guardians_results.index');
 Route::get('/guardians_results_search', 'App\Http\Controllers\GuardianResultController@search')->name('guardians_results.search');

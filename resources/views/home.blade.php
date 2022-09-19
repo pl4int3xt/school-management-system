@@ -19,6 +19,16 @@
                     <div class="col-md-4 col-sm-12">
                         <div class="card shadow-sm">
                             <div class="card-body">
+                                <h3>Classes</h3>
+                                <h3>Total</h3>
+                                <h4>{{ \App\Models\Clas::all()->count() }}</h4>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
                                 <h3>Teachers</h3>
                                 <h3>Total</h3>
                                 <h4>{{ \App\Models\Teacher::all()->count() }}</h4>
@@ -26,6 +36,8 @@
                         </div>
                         <br>
                     </div>
+                </div>
+                <div class="row my-4">
                     <div class="col-md-4 col-sm-12">
                         <div class="card shadow-sm">
                             <div class="card-body">
@@ -34,9 +46,8 @@
                                 <h4>{{ \App\Models\Guardian::all()->count() }}</h4>
                             </div>
                         </div>
+                        <br>
                     </div>
-                </div>
-                <div class="row my-4">
                     <div class="col-md-4 col-sm-12">
                         <div class="card shadow-sm">
                             <div class="card-body">
@@ -57,6 +68,8 @@
                         </div>
                         <br>
                     </div>
+                </div>
+                <div class="row my-4">
                     <div class="col-md-4 col-sm-12">
                         <div class="card shadow-sm">
                             <div class="card-body">
@@ -65,17 +78,16 @@
                                 <h4>{{ \App\Models\Announcement::all()->count() }}</h4>
                             </div>
                         </div>
+                        <br>
                     </div>
-                </div>
-                <div class="row my-4">
                     <div class="col-md-4 col-sm-12">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <h3>Projects</h3>
-                            <h3>Total</h3>
-                            <h4>{{ \App\Models\Project::all()->count() }}</h4>
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h3>Projects</h3>
+                                <h3>Total</h3>
+                                <h4>{{ \App\Models\Project::all()->count() }}</h4>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             @endif   

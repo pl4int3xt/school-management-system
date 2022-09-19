@@ -93,7 +93,13 @@
                                             <input type="text" class="form-control" id="parent" name="parent" required="True">
 
                                             <label for="class" class="form-label">Class:</label>
-                                            <input type="text" class="form-control" id="class" name="class" required="True">
+                                            <select id="class" class="form-select" name="class" required="True">
+
+                                            @foreach($clases as $clas)
+                                                    <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                            @endforeach
+                                            
+                                            </select>
 
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success rounded-pill">

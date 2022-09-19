@@ -1,110 +1,64 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>School management system</title>
-
-    <!-- Scripts -->
-
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- jquery script -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <br>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div id="result" class="card shadow-sm">
-                    <div class="card-body">
-                        <h3 class="text-uppercase text-center mt-3" style="font-size: 30px;">School Name</h3>
-                        <h3 class="text-uppercase text-center mt-3" style="font-size: 30px;">Fee Slip</h3></br>
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Name</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ $fees_report->name }}</h4>
-                                </div>
-                                <hr>
-                            </div>
 
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Fee Paid</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ $fees_report->fee_paid }}</h4>
-                                </div>
-                                <hr>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Fee payable</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ $fees_report->fee_payable }}</h4>
-                                </div>
-                                <hr>
-                            </div>
+    <style>
+        h1{
+            text-align: center;
+        }
 
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Fee balance</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ ($fees_report->fee_payable) - ($fees_report->fee_paid)}}</h4>
-                                </div>
-                                <hr>
-                            </div>
+        table, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        table{
+            text-align: left;
+            width: 100%;
+        }
+        tr:nth-child(even){
+            background-color: grey;
+        }
 
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Payment Method</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ $fees_report->payment_method }}</h4>
-                                </div>
-                                <hr>
-                            </div>
+    </style>
 
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Ref No</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ $fees_report->ref_no }}</h4>
-                                </div>
-                                <hr>
-                            </div>
+    <h1>School Name</h1>
+    <h1>Fee Statement</h1>
 
-                            <div class="row justify-content-center">
-                                <div class="col">
-                                    <h4>Term Period</h4>
-                                </div>
-                                <div class="col">
-                                    <h4>{{ $fees_report->term_period }}</h4>
-                                </div>
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>{{ $fees_report->name }}</td>
+        </tr>
+        <tr>
+            <td>Fee Paid</td>
+            <td>{{ $fees_report->fee_paid }}</td>
+        </tr>
+        <tr>
+            <td>Fee payable</td>
+            <td>{{ $fees_report->fee_payable }}</td>
+        </tr>
+        <tr>
+            <td>Fee Balance</td>
+            <td>{{ ($fees_report->fee_payable) - ($fees_report->fee_paid)}}</td>
+        </tr>
+        <tr>
+            <td>Payment method</td>
+            <td>{{ $fees_report->payment_method }}</td>
+        </tr>
+        <tr>
+            <td>Ref No</td>
+            <td>{{ $fees_report->ref_no }}</td>
+        </tr>
+        <tr>
+            <td>Term period</td>
+            <td>{{ $fees_report->term_period }}</td>
+        </tr>
+    </table>
 </body>
 </html>

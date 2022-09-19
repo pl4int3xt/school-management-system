@@ -35,6 +35,7 @@
 
                             @if(Auth::user()->role == "admin")
                                 <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action bg-white">Students</a>
+                                <a href="{{ route('clases.index') }}" class="list-group-item list-group-item-action bg-white">Classes</a>
                                 <a href="{{ route('guardians.index') }}" class="list-group-item list-group-item-action bg-white">Guardians</a>
                                 <a href="{{ route('teachers.index') }}" class="list-group-item list-group-item-action bg-white">Teachers</a>
                                 <a href="{{ route('admin.index') }}" class="list-group-item list-group-item-action bg-white">Users</a>
@@ -81,6 +82,9 @@
                     @if(Auth::user()->role == "admin")
                         <a class="navbar-brand" href="{{ route('students.index')}}">
                             Students 
+                        </a>
+                        <a class="navbar-brand" href="{{ route('clases.index')}}">
+                            Classes 
                         </a>  
                         <a class="navbar-brand" href="{{ route('teachers.index')}}">
                             Teachers 

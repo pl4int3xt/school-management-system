@@ -26,6 +26,9 @@
                         <label for="payment_method" class="form-label">Payment method:</label>
                         <input type="text" class="form-control" id="payment_method" name="payment_method" required="True" value="{{ $fee->payment_method }}">
 
+                        <label for="ref_no" class="form-label">Ref No:</label>
+                        <input type="text" class="form-control" id="ref_no" name="ref_no" required="True" value="{{ $fee->ref_no }}">
+
                         <label for="term_period" class="form-label">Term period:</label>
                         <input type="text" class="form-control" id="term_period" name="term_period" required="True" value="{{ $fee->term_period }}">
 
