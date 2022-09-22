@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <td>Results</td>
-            <td>{{ $results_report->results }}</td>
+            <td>{!! str_replace("," ,"<br/>", $results_report->results ) !!}</td>
         </tr>
         <tr>
             <td>Term Period</td>

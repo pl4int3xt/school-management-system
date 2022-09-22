@@ -19,8 +19,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- jquery script -->
 </head>
 <body>
     <div id="app">
@@ -28,7 +26,7 @@
 
             <!-- Sidebar -->
 
-                <div class="bg-white shadow-sm border-right" id="sidebar-wrapper" >
+                <div class="bg-white shadow-sm border-right" id="sidebar-wrapper">
                     <div class="sidebar-heading" >School Logo</div>
                         <div class="list-group list-group-flush">
                             <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-white">Dashboard</a>
@@ -57,6 +55,7 @@
                                 <a href="{{ route('guardians_results.index') }}" class="list-group-item list-group-item-action bg-white">Results</a>
                                 <a href="{{ route('guardians_scores.index') }}" class="list-group-item list-group-item-action bg-white">Class Scores</a>
                                 <a href="{{ route('guardians_fees.index') }}" class="list-group-item list-group-item-action bg-white">Fees</a>
+                                <a href="{{ route('guardians_attendances.index') }}" class="list-group-item list-group-item-action bg-white">Attendances</a>
                                 <a href="{{ route('guardians_announcements.index') }}" class="list-group-item list-group-item-action bg-white">Announcements</a>
                             @endif
 
@@ -142,6 +141,9 @@
                         </a>
                         <a class="navbar-brand" href="{{ route('guardians_fees.index')}}">
                             Fees 
+                        </a>
+                        <a class="navbar-brand" href="{{ route('guardians_attendances.index')}}">
+                            Attendances 
                         </a>
                         <a class="navbar-brand" href="{{ route('guardians_announcements.index')}}">
                             Announcements

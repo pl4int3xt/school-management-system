@@ -97,10 +97,6 @@ Route::get('/projects_search', 'App\Http\Controllers\ProjectController@search')-
 //attendances routes
 Route::get('/attendances_index', 'App\Http\Controllers\AttendanceController@index')->name('attendances.index');
 Route::post('/attendances_store', 'App\Http\Controllers\AttendanceController@store')->name('attendances.store');
-Route::get('/attendances_destroy/{id}', 'App\Http\Controllers\AttendanceController@destroy')->name('attendances.destroy');
-Route::get('/attendances_edit/{id}', 'App\Http\Controllers\AttendanceController@edit')->name('attendances.edit');
-Route::put('/attendances_update/{id}', 'App\Http\Controllers\AttendanceController@update')->name('attendances.update');
-Route::get('/attendances_search', 'App\Http\Controllers\AttendanceController@search')->name('attendances.search');
 
 //scores routes
 Route::get('/scores_index', 'App\Http\Controllers\ScoreController@index')->name('scores.index');
@@ -161,7 +157,9 @@ Route::get('/libraries_announcements_search', 'App\Http\Controllers\LibraryAnnou
 
 //guardians_scores routes
 Route::get('/guardians_scores_index', 'App\Http\Controllers\GuardianScoreController@index')->name('guardians_scores.index');
-Route::get('/guardians_scores_search', 'App\Http\Controllers\GuardianScoreController@search')->name('guardians_scores.search');
+
+//guardians_attendances routes
+Route::get('/guardians_attendances_index', 'App\Http\Controllers\GuardianAttendanceController@index')->name('guardians_attendances.index');
 
 //results_reports routes
 Route::get('/results_reports_index/{id}', 'App\Http\Controllers\ResultReportController@index')->name('results_reports.index');

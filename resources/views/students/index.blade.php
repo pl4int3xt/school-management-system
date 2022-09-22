@@ -18,13 +18,17 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="container text-start">
-                                        <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#member-reg-modal">Add</a>
+                                        <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#member-reg-modal">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col text-end">
                                     <form action="{{ route('students.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                            <i class="fa-solid fa-search"></i>
+                                        </button> 
                                     </form>
                                 </div>
                             </div>   
@@ -59,8 +63,12 @@
                                             <td>{{ $student->parent }}</td>
                                             <td>{{ $student->class }}</td>
                                             <td>
-                                                <a href="{{ url('/students_edit/'.$student->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/students_destroy/'.$student->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/students_edit/'.$student->id) }}" class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="{{ url('/students_destroy/'.$student->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -87,7 +95,7 @@
                                             <input type="text" class="form-control" id="adm_no" name="adm_no" required="True">
 
                                             <label for="date_of_birth" class="form-label">Date of birth:</label>
-                                            <input type="tel" class="form-control" id="date_of_birth" name="date_of_birth" required="True">
+                                            <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required="True">
 
                                             <label for="parent" class="form-label">Parent:</label>
                                             <input type="text" class="form-control" id="parent" name="parent" required="True">
@@ -102,9 +110,11 @@
                                             </select>
 
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success rounded-pill">
-                                                    Submit
-                                                </button>
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div> 

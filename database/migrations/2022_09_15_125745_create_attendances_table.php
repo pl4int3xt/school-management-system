@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("attendance");
+            $table->string("class");
             $table->string("date");
             $table->timestamps();
         });

@@ -52,7 +52,7 @@
                                     @foreach ($scores as $score) 
                                         <tr>
                                             <td>{{ $score->name }}</td>
-                                            <td>{{ $score->scores }}</td>
+                                            <td>{!! str_replace("," ,"<br/>", $score->scores ) !!}</td>
                                             <td>{{ $score->term_period }}</td>
                                             <td>
                                                 <a href="{{ url('/scores_edit/'.$score->id) }}" class="btn btn-success rounded-pill">Edit</a>
@@ -76,11 +76,17 @@
                                     <div class="modal-body">
                                         <form action="{{ route('scores.store') }}" method="post">
                                             @csrf
-                                            <label for="name" class="form-label">Name:</label>
-                                            <input type="text" class="form-control" id="name" name="name" required="True">
+                                            <label for="name" class="form-label">Class Name:</label>
+                                            <select id="name" class="form-select" name="name" required="True">
+
+                                            @foreach($clases as $clas)
+                                                    <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                            @endforeach
+                                            
+                                            </select>
 
                                             <label for="scores" class="form-label">Scores:</label>
-                                            <input type="text" class="form-control" id="scores" name="scores" required="True">
+                                            <textarea class="form-control" name="scores" id="scores" cols="30" rows="1" ></textarea>
 
                                             <label for="term_period" class="form-label">Term period:</label>
                                             <input type="text" class="form-control" id="term_period" name="term_period" required="True">

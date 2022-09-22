@@ -46,6 +46,7 @@
                                         <th>Contact</th>
                                         <th>Class</th>
                                         <th>Subjects</th>
+                                        <th>Is Class Teacher</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -56,6 +57,7 @@
                                             <td>{{ $teacher->contact }}</td>
                                             <td>{{ $teacher->class }}</td>
                                             <td>{{ $teacher->subjects }}</td>
+                                            <td>{{ $teacher->is_class_teacher }}</td>
                                             <td>
                                                 <a href="{{ url('/teachers_edit/'.$teacher->id) }}" class="btn btn-success rounded-pill">Edit</a>
                                                 <a href="{{ url('/teachers_destroy/'.$teacher->id)}}"class="btn btn-danger rounded-pill">Delete</a>
@@ -84,11 +86,24 @@
                                             <label for="contact" class="form-label">Contact:</label>
                                             <input type="tel" class="form-control" id="contact" name="contact" required="True">
 
-                                            <label for="class" class="form-label">Class:</label>
-                                            <input type="text" class="form-control" id="class" name="class" required="True">
-
                                             <label for="subjects" class="form-label">Subjects:</label>
                                             <input type="text" class="form-control" id="subjects" name="subjects" required="True">
+
+
+                                            <label for="is_class_teacher" class="form-label">Is Class Teacher:</label>
+                                            <select id="is_class_teacher" class="form-select" name="is_class_teacher" required="False">
+                                                <option value="true">True</option>
+                                                <option value="false">False</option>
+                                            </select>
+
+                                            <label for="class" class="form-label">Class:</label>
+                                            <select id="class" class="form-select" name="class" required="True">
+
+                                            @foreach($clases as $clas)
+                                                    <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                            @endforeach
+                                                                
+                                            </select>
 
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success rounded-pill">

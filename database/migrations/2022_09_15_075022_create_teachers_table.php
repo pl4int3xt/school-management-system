@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('contact');
-            $table->string('class');
+            $table->string('class')->nullable();
             $table->string('subjects')->nullable();
+            $table->string('is_class_teacher')->nullable();
             $table->timestamps();
         });
     }

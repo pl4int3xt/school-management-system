@@ -55,7 +55,7 @@
                                         <tr>
                                             <td>{{ $result->name }}</td>
                                             <td>{{ $result->class }}</td>
-                                            <td>{{ $result->results }}</td>
+                                            <td>{!! str_replace("," ,"<br/>", $result->results ) !!}</td>
                                             <td>{{ $result->position }}</td>
                                             <td>{{ $result->term_period }}</td>
                                             <td>
@@ -86,8 +86,8 @@
                                             <label for="class" class="form-label">class:</label>
                                             <input type="tel" class="form-control" id="class" name="class" required="True">
 
-                                            <label for="results" class="form-label">results:</label>
-                                            <input type="text" class="form-control" id="results" name="results" required="True">
+                                            <label for="results" class="form-label">Results:</label>
+                                            <textarea class="form-control" name="results" id="results" cols="30" rows="1" ></textarea>
 
                                             <label for="position" class="form-label">position:</label>
                                             <input type="text" class="form-control" id="position" name="position" required="True">

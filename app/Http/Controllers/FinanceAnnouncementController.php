@@ -12,7 +12,7 @@ class FinanceAnnouncementController extends Controller
     }
 
     public function index(){
-        $announcements = Announcement::Paginate(5);
+        $announcements = Announcement::Paginate(20);
 
         return view('finances_announcements.index', compact('announcements'));
     }
@@ -21,9 +21,9 @@ class FinanceAnnouncementController extends Controller
         $search = request('search');
 
         if($search){
-            $announcements = Announcement::where('name','LIKE',"%{$search}%")->paginate(3);
+            $announcements = Announcement::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $announcements = Announcement::paginate(5);
+            $announcements = Announcement::paginate(20);
         }
 
         return view('finances_announcements.index', compact('announcements'));

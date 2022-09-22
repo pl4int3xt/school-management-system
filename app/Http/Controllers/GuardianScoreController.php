@@ -12,7 +12,7 @@ class GuardianScoreController extends Controller
     }
 
     public function index(){
-        $scores = Score::Paginate(5);
+        $scores = Score::Paginate(20);
 
         return view('guardians_scores.index', compact('scores'));
     }
@@ -21,9 +21,9 @@ class GuardianScoreController extends Controller
         $search = request('search');
 
         if($search){
-            $scores = Score::where('name','LIKE',"%{$search}%")->paginate(3);
+            $scores = Score::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $scores = Score::paginate(5);
+            $scores = Score::paginate(20);
         }
 
         return view('guardians_scores.index', compact('scores'));

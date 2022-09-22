@@ -13,13 +13,20 @@ class UserController extends Controller
     }
     
     public function index(){
-        $users = User::paginate(10);
+        $users = User::paginate(20);
 
         return view('admin.index', compact('users'));
     }
 
     public function store(){
-        // send data to db
+
+        request()->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'role'=>'required',
+        ]);
+
         $user = new User();
         $user->name = request('name');
         $user->email = request('email');
@@ -38,6 +45,14 @@ class UserController extends Controller
     }
 
     public function update($id){
+        
+        request()->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'role'=>'required',
+        ]);
+
         $user = User::findOrFail($id);
         $user->name = request('name');
         $user->email = request('email');
@@ -60,9 +75,9 @@ class UserController extends Controller
     public function search(){
         $search = request('search');
         if($search){
-            $users = User::where('name', 'LIKE', "%{$search}%")->paginate(3);
+            $users = User::where('name', 'LIKE', "%{$search}%")->paginate(20);
         }else{
-            $users = User::paginate(10);
+            $users = User::paginate(20);
         }
 
         return view('admin.index', compact('users'));

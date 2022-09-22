@@ -12,13 +12,18 @@ class ProjectController extends Controller
     }
     
     public function index(){
-        $projects = Project::Paginate(5);
+        $projects = Project::Paginate(20);
 
         return view('projects.index', compact('projects'));
     }
 
     public function store(){
         $project = new Project();
+
+        request()->validate([
+            'name'=>'required',
+            'cost'=>'required',
+        ]);
 
         $project->name = request('name');
         $project->cost = request('cost');
@@ -32,6 +37,11 @@ class ProjectController extends Controller
     public function update($id){
         $project = Project::findOrFail($id);
 
+        request()->validate([
+            'name'=>'required',
+            'cost'=>'required',
+        ]);
+        
         $project->name = request('name');
         $project->cost = request('cost');
         $project->other_details = request('other_details');
@@ -59,9 +69,9 @@ class ProjectController extends Controller
         $search = request('search');
 
         if($search){
-            $projects = Project::where('name','LIKE',"%{$search}%")->paginate(3);
+            $projects = Project::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $projects = Project::paginate(5);
+            $projects = Project::paginate(20);
         }
 
         return view('projects.index', compact('projects'));

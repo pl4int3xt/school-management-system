@@ -12,13 +12,22 @@ class FeeController extends Controller
     }
 
     public function index(){
-        $fees = Fee::Paginate(5);
+        $fees = Fee::Paginate(20);
 
         return view('fees.index', compact('fees'));
     }
 
     public function store(){
         $fee = new Fee();
+
+        request()->validate([
+            'name'=>'required',
+            'fee_paid'=>'required',
+            'fee_payable'=>'required',
+            'payment_method'=>'required',
+            'ref_no'=>'required',
+            'term_period'=>'required',
+        ]);
 
         $fee->name = request('name');
         $fee->fee_paid = request('fee_paid');
@@ -36,6 +45,15 @@ class FeeController extends Controller
     public function update($id){
         $fee = Fee::findOrFail($id);
 
+        request()->validate([
+            'name'=>'required',
+            'fee_paid'=>'required',
+            'fee_payable'=>'required',
+            'payment_method'=>'required',
+            'ref_no'=>'required',
+            'term_period'=>'required',
+        ]);
+        
         $fee->name = request('name');
         $fee->fee_paid = request('fee_paid');
         $fee->fee_payable = request('fee_payable');
@@ -66,9 +84,9 @@ class FeeController extends Controller
         $search = request('search');
 
         if($search){
-            $fees = Fee::where('name','LIKE',"%{$search}%")->paginate(3);
+            $fees = Fee::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $fees = Fee::paginate(5);
+            $fees = Fee::paginate(20);
         }
 
         return view('fees.index', compact('fees'));

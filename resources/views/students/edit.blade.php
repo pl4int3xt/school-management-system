@@ -21,7 +21,7 @@
                         <input type="text" class="form-control" id="adm_no" name="adm_no" required="True" value="{{ $student->adm_no }}">
 
                         <label for="date_of_birth" class="form-label">Date of birth</label>
-                        <input type="tel" class="form-control" id="date_of_birth" name="date_of_birth" required="True" value="{{ $student->date_of_birth }}">
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required="True" value="{{ $student->date_of_birth }}">
 
                         <label for="parent" class="form-label">parent:</label>
                         <input type="text" class="form-control" id="parent" name="parent" required="True" value="{{ $student->parent }}">
@@ -34,11 +34,18 @@
                         @endforeach
                                             
                         </select>
+
+                        <br>
+                        
                         <div class="modal-footer">
-                            <a href="{{ url('students_index') }}" class="btn btn-success rounded-pill">close</a>
-                            <button type="submit" class="btn btn-success rounded-pill">
-                                Update
-                            </button>
+                            <div class="container">
+                                <a href="{{ url('students_index') }}" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-times"></i>
+                                </a>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

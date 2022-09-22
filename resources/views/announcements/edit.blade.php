@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header">
-                    {{ __('Update Worker') }}
+                    {{ __('Update Announcement') }}
                 </div>
 
                 <div class="card-body">
@@ -27,8 +27,8 @@
                         </select>
 
                         <div class="modal-footer">
-                            <a href="{{ url('workers_index') }}" class="btn btn-success rounded-pill">close</a>
-                            <button type="submit" class="btn btn-success rounded-pill">
+                            <a href="{{ url('announcements_index') }}" class="btn btn-outline-primary rounded-pill">close</a>
+                            <button type="submit" class="btn btn-outline-primary rounded-pill">
                                 Update
                             </button>
                         </div>

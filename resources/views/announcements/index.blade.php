@@ -18,13 +18,15 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="container text-start">
-                                        <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#announcement-reg-modal">Add</a>
+                                        <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#announcement-reg-modal">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col text-end">
                                     <form action="{{ route('announcements.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">Search</button> 
                                     </form>
                                 </div>
                             </div>   
@@ -44,6 +46,7 @@
                                     <tr>
                                         <th>Description</th>
                                         <th>Department</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,10 +54,9 @@
                                         <tr>
                                             <td>{{ $announcement->description }}</td>
                                             <td>{{ $announcement->department }}</td>
-
                                             <td>
-                                                <a href="{{ url('/announcements_edit/'.$announcement->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/announcements_destroy/'.$announcement->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/announcements_edit/'.$announcement->id) }}" class="btn btn-outline-primary rounded-pill"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{{ url('/announcements_destroy/'.$announcement->id)}}" class="btn btn-outline-primary rounded-pill"><i class="fa-solid fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -87,7 +89,7 @@
                                             </select>
 
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success rounded-pill">
+                                                <button type="submit" class="btn btn-outline-primary rounded-pill">
                                                     Submit
                                                 </button>
                                             </div>

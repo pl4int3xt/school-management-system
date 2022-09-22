@@ -31,7 +31,7 @@
                             </div>
                         @endif
 
-                        <!-- members registration table -->
+                        
                         <div class="container table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
@@ -50,7 +50,7 @@
                                                 <tr>
                                                     <td>{{ $result->name }}</td>
                                                     <td>{{ $result->class }}</td>
-                                                    <td>{{ $result->results }}</td>
+                                                    <td>{!! str_replace("," ,"<br/>", $result->results ) !!}</td>
                                                     <td>{{ $result->term_period }}</td>
                                                     <td>
                                                         <a href="{{ url('/results_reports_pdf/'.$result->id) }}" class="btn btn-success rounded-pill">Download</a>

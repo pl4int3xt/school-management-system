@@ -12,12 +12,20 @@ class WorkerController extends Controller
     }
     
     public function index(){
-        $workers = Worker::Paginate(5);
+        $workers = Worker::Paginate(20);
 
         return view('workers.index', compact('workers'));
     }
 
     public function store(){
+        
+        request()->validate([
+            'name'=>'required',
+            'contact'=>'required',
+            'area_of_work'=>'required',
+            'salary'=>'required',
+        ]);
+
         $worker = new Worker();
 
         $worker->name = request('name');
@@ -32,6 +40,14 @@ class WorkerController extends Controller
     }
 
     public function update($id){
+        
+        request()->validate([
+            'name'=>'required',
+            'contact'=>'required',
+            'area_of_work'=>'required',
+            'salary'=>'required',
+        ]);
+
         $worker = Worker::findOrFail($id);
 
         $worker->name = request('name');
@@ -62,9 +78,9 @@ class WorkerController extends Controller
         $search = request('search');
 
         if($search){
-            $workers = Worker::where('name','LIKE',"%{$search}%")->paginate(3);
+            $workers = Worker::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $workers = Worker::paginate(5);
+            $workers = Worker::paginate(20);
         }
 
         return view('workers.index', compact('workers'));

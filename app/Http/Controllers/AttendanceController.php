@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attendance;
+use App\Models\Teacher;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use DB;
 
 class AttendanceController extends Controller
 {
@@ -12,58 +14,41 @@ class AttendanceController extends Controller
     }
 
     public function index(){
-        $attendances = Attendance::Paginate(5);
+        $teachers = Teacher::All();
+        $students = Student::All();
 
-        return view('attendances.index', compact('attendances'));
+        return view('attendances.index', compact('teachers','students'));
     }
 
-    public function store(){
+    public function store(Request $request){
         $attendance = new Attendance();
 
-        $attendance->name = request('name');
-        $attendance->attendance = request('attendance');    
-        $attendance->date = request('date');
+        request()->validate([
+            'name'=>'required',
+            'attendance'=>'required',
+            'class'=>'required',
+            'date'=>'required',
+        ]);
+        
 
-        $attendance->save();
+        $id = $request->id;
+        $name = $request->name;
+        $attendance = $request->attendance;
+        $class = $request->class;
+        $date = $request->date;
+   
+        for($i=0; $i<count($id);$i++){
 
-        return redirect('/attendances_index')->with('mssg','attendance created successfully');
-    }
+            $data = [
+                'name'=>$name[$i],
+                'attendance'=>$attendance[$i],
+                'class'=>$class[$i],
+                'date'=>$date[$i]
+            ];
 
-    public function update($id){
-        $attendance = Attendance::findOrFail($id);
-
-        $attendance->name = request('name');
-        $attendance->attendance = request('attendance');
-        $attendance->date = request('date');
-
-        $attendance->update();
-
-        return redirect('/attendances_index')->with('mssg','attendance updated successfully');
-    }
-
-    public function destroy($id){
-        $attendance = Attendance::findOrFail($id);
-
-        $attendance->delete();
-
-        return redirect('/attendances_index')->with('mssg','attendance deleted successfully');
-    }
-
-    public function edit($id){
-        $attendance = Attendance::findOrFail($id);
-
-        return view('attendances.edit', compact('attendance'));
-    }
-
-    public function search(){
-        $search = request('search');
-
-        if($search){
-            $attendances = Attendance::where('name','LIKE',"%{$search}%")->paginate(3);
-        }else{
-            $attendances = Attendance::paginate(5);
+            DB::table('attendances')->insert($data);
         }
 
-        return view('attendances.index', compact('attendances'));
+        return redirect('/attendances_index')->with('mssg','attendance created successfully');
     }
 }

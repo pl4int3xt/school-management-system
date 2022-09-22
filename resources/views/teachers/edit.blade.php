@@ -20,11 +20,23 @@
                         <label for="contact" class="form-label">contact:</label>
                         <input type="tel" class="form-control" id="contact" name="contact" required="True" value="{{ $teacher->contact }}">
 
-                        <label for="class" class="form-label">class:</label>
-                        <input type="text" class="form-control" id="class" name="class" required="True" value="{{ $teacher->class }}">
-
                         <label for="subjects" class="form-label">subjects:</label>
                         <input type="text" class="form-control" id="subjects" name="subjects" required="True" value="{{ $teacher->subjects }}">
+
+                        <label for="is_class_teacher" class="form-label">Is Class Teacher:</label>
+                        <select id="is_class_teacher" class="form-select" name="is_class_teacher" required="False">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+
+                        <label for="class" class="form-label">Class:</label>
+                        <select id="class" class="form-select" name="class" required="True">
+
+                        @foreach($clases as $clas)
+                                <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                        @endforeach
+                                            
+                        </select>
 
                         <div class="modal-footer">
                             <a href="{{ url('teachers_index') }}" class="btn btn-success rounded-pill">close</a>

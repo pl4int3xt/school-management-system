@@ -13,7 +13,7 @@ class GuardianFeeController extends Controller
     }
 
     public function index(){
-        $fees = Fee::Paginate(5);
+        $fees = Fee::Paginate(20);
         $students = Student::All();
 
         return view('guardians_fees.index', compact('fees','students'));

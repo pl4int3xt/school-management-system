@@ -12,7 +12,7 @@ class GuardianController extends Controller
     }
     
     public function index(){
-        $guardians = Guardian::paginate(5);
+        $guardians = Guardian::paginate(20);
 
         return view('guardians.index', compact('guardians'));
     }
@@ -20,6 +20,13 @@ class GuardianController extends Controller
     public function store(){
         $guardian = new Guardian();
 
+        request()->validate([
+            'name'=>'required',
+            'contact'=>'required',
+            'relationship'=>'required',
+            'student'=>'required',
+        ]);
+        
         $guardian->name = request('name');
         $guardian->contact = request('contact');
         $guardian->relationship = request('relationship');
@@ -33,6 +40,13 @@ class GuardianController extends Controller
     public function update($id){
         $guardian = Guardian::findOrFail($id);
 
+        request()->validate([
+            'name'=>'required',
+            'contact'=>'required',
+            'relationship'=>'required',
+            'student'=>'required',
+        ]);
+        
         $guardian->name = request('name');
         $guardian->contact = request('contact');
         $guardian->relationship = request('relationship');
@@ -60,9 +74,9 @@ class GuardianController extends Controller
         $search = request('search');
 
         if($search){
-            $guardians = Guardian::where('name','LIKE',"%{$search}%")->paginate(5);
+            $guardians = Guardian::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $guardians = Guardian::paginate(5);
+            $guardians = Guardian::paginate(20);
         }
 
         return view('guardians.index', compact('guardians'));

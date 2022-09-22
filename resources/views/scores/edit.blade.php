@@ -14,11 +14,18 @@
                     <form action="{{ url('/scores_update/'.$score->id) }}" method="post">
                         @csrf
                         @method("put")
-                        <label for="name" class="form-label">Name:</label>
-                        <input type="text" class="form-control" id="name" name="name" required="True" value="{{ $score->name }}">
+                        
+                        <label for="name" class="form-label">Class Name:</label>
+                        <select id="name" class="form-select" name="name" required="True">
 
-                        <label for="scores" class="form-label">Scores:</label>
-                        <input type="text" class="form-control" id="scores" name="scores" required="True" value="{{ $score->scores }}">
+                        @foreach($clases as $clas)
+                                <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                        @endforeach
+                                            
+                        </select>
+
+                        <label for="scores" class="form-label">scores:</label>
+                        <textarea class="form-control" name="scores" id="scores" cols="30" rows="1" >{{ $score->scores }}</textarea>
 
                         <label for="term_period" class="form-label">Term period:</label>
                         <input type="text" class="form-control" id="term_period" name="term_period" required="True" value="{{ $score->term_period }}">

@@ -12,13 +12,17 @@ class ClasController extends Controller
     }
 
     public function index(){
-        $clases = Clas::Paginate(5);
+        $clases = Clas::Paginate(20);
 
         return view('clases.index', compact('clases'));
     }
 
     public function store(){
         $clas = new Clas();
+
+        request()->validate([
+            'name'=>'required',
+        ]);
 
         $clas->name = request('name');
         $clas->other_details = request('other_details');
@@ -31,6 +35,10 @@ class ClasController extends Controller
     public function update($id){
         $clas = Clas::findOrFail($id);
 
+        request()->validate([
+            'name'=>'required',
+        ]);
+        
         $clas->name = request('name');
         $clas->other_details = request('other_details');
 
@@ -57,9 +65,9 @@ class ClasController extends Controller
         $search = request('search');
 
         if($search){
-            $clases = Clas::where('name','LIKE',"%{$search}%")->paginate(3);
+            $clases = Clas::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $clases = Clas::paginate(5);
+            $clases = Clas::paginate(20);
         }
 
         return view('clases.index', compact('clases'));

@@ -12,13 +12,20 @@ class TeacherTimeTableController extends Controller
     }
 
     public function index(){
-        $teachers_timetables = TeacherTimeTable::Paginate(5);
+        $teachers_timetables = TeacherTimeTable::Paginate(20);
 
         return view('teachers_timetables.index', compact('teachers_timetables'));
     }
 
     public function store(){
         $teachers_timetable = new TeacherTimeTable();
+
+        request()->validate([
+            'subject_name'=>'required',
+            'time'=>'required',
+            'class'=>'required',
+            'term_period'=>'required',
+        ]);
 
         $teachers_timetable->subject_name = request('subject_name');
         $teachers_timetable->time = request('time');        
@@ -33,6 +40,13 @@ class TeacherTimeTableController extends Controller
     public function update($id){
         $teachers_timetable = TeacherTimeTable::findOrFail($id);
 
+        request()->validate([
+            'subject_name'=>'required',
+            'time'=>'required',
+            'class'=>'required',
+            'term_period'=>'required',
+        ]);
+        
         $teachers_timetable->subject_name = request('subject_name');
         $teachers_timetable->time = request('time');        
         $teachers_timetable->class = request('class');
@@ -61,9 +75,9 @@ class TeacherTimeTableController extends Controller
         $search = request('search');
 
         if($search){
-            $teachers_timetables = TeacherTimeTable::where('subject_name','LIKE',"%{$search}%")->paginate(3);
+            $teachers_timetables = TeacherTimeTable::where('subject_name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $teachers_timetables = TeacherTimeTable::paginate(5);
+            $teachers_timetables = TeacherTimeTable::paginate(20);
         }
 
         return view('teachers_timetables.index', compact('teachers_timetables'));

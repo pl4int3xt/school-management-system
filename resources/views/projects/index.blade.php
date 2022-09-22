@@ -82,7 +82,7 @@
                                             <input type="text" class="form-control" id="cost" name="cost" required="True">
 
                                             <label for="other_details" class="form-label">Other details:</label>
-                                            <input type="text" class="form-control" id="other_details" name="other_details" required="True">
+                                            <textarea class="form-control" name="other_details" id="other_details" cols="30" rows="1"></textarea>
 
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-success rounded-pill">

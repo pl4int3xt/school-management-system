@@ -20,9 +20,9 @@
                         <label for="class" class="form-label">class:</label>
                         <input type="tel" class="form-control" id="class" name="class" required="True" value="{{ $result->class }}">
 
-                        <label for="results" class="form-label">results:</label>
-                        <input type="text" class="form-control" id="results" name="results" required="True" value="{{ $result->results }}">
-
+                        <label for="results" class="form-label">Results:</label>
+                        <textarea class="form-control" name="results" id="results" cols="30" rows="1" >{{ $result->results }}</textarea>
+                        
                         <label for="position" class="form-label">position:</label>
                         <input type="text" class="form-control" id="position" name="position" required="True" value="{{ $result->position }}">
 

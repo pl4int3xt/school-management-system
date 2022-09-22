@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clas;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 
@@ -12,17 +13,25 @@ class TeacherController extends Controller
     }
     
     public function index(){
-        $teachers = Teacher::paginate(5);
-        return view('teachers.index', compact('teachers'));
+        $clases = Clas::all();
+        $teachers = Teacher::paginate(20);
+        return view('teachers.index', compact('teachers','clases'));
     }
 
     public function store(){
         $teacher = new Teacher();
 
+        request()->validate([
+            'name'=>'required',
+            'contact'=>'required',
+            'subjects'=>'required',
+        ]);
+
         $teacher->name = request('name');
         $teacher->contact = request('contact');
         $teacher->class = request('class');
         $teacher->subjects = request('subjects');
+        $teacher->is_class_teacher = request('is_class_teacher');
 
         $teacher->save();
 
@@ -32,10 +41,17 @@ class TeacherController extends Controller
     public function update($id){
         $teacher = Teacher::findOrFail($id);
 
+        request()->validate([
+            'name'=>'required',
+            'contact'=>'required',
+            'subjects'=>'required',
+        ]);
+        
         $teacher->name = request('name');
         $teacher->contact = request('contact');
         $teacher->class = request('class');
         $teacher->subjects = request('subjects');
+        $teacher->is_class_teacher = request('is_class_teacher');
 
         $teacher->update();
 
@@ -51,20 +67,22 @@ class TeacherController extends Controller
     }
 
     public function edit($id){
+        $clases = Clas::all();
         $teacher = Teacher::findorFail($id);
 
-        return view('teachers.edit', compact('teacher'));
+        return view('teachers.edit', compact('teacher','clases'));
     }
 
     public function search(){
         $search = request('search');
+        $clases = Clas::all();
 
         if($search){
-            $teachers = Teacher::where('name','LIKE',"%{$search}%")->paginate(5);
+            $teachers = Teacher::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $teachers = Teacher::paginate(5);
+            $teachers = Teacher::paginate(20);
         }
 
-        return view('teachers.index', compact('teachers'));
+        return view('teachers.index', compact('teachers','clases'));
     }
 }

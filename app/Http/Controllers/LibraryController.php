@@ -12,13 +12,22 @@ class LibraryController extends Controller
     }
     
     public function index(){
-        $libraries = Library::Paginate(5);
+        $libraries = Library::Paginate(20);
 
         return view('libraries.index', compact('libraries'));
     }
 
     public function store(){
         $library = new Library();
+
+        request()->validate([
+            'book_name'=>'required',
+            'student_name'=>'required',
+            'student_adm_no'=>'required',
+            'day_borrowed'=>'required',
+            'return_date'=>'required',
+            'returned'=>'required',
+        ]);
 
         $library->book_name = request('book_name');
         $library->student_name = request('student_name');
@@ -35,6 +44,15 @@ class LibraryController extends Controller
     public function update($id){
         $library = Library::findOrFail($id);
 
+        request()->validate([
+            'book_name'=>'required',
+            'student_name'=>'required',
+            'student_adm_no'=>'required',
+            'day_borrowed'=>'required',
+            'return_date'=>'required',
+            'returned'=>'required',
+        ]);
+        
         $library->book_name = request('book_name');
         $library->student_name = request('student_name');
         $library->student_adm_no = request('student_adm_no');
@@ -65,9 +83,9 @@ class LibraryController extends Controller
         $search = request('search');
 
         if($search){
-            $libraries = Library::where('name','LIKE',"%{$search}%")->paginate(3);
+            $libraries = Library::where('book_name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $libraries = Library::paginate(5);
+            $libraries = Library::paginate(20);
         }
 
         return view('libraries.index', compact('libraries'));

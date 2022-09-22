@@ -12,13 +12,21 @@ class ResultController extends Controller
     }
 
     public function index(){
-        $results = Result::Paginate(5);
+        $results = Result::Paginate(20);
 
         return view('results.index', compact('results'));
     }
 
     public function store(){
         $result = new Result();
+
+        request()->validate([
+            'name'=>'required',
+            'class'=>'required',
+            'results'=>'required',
+            'position'=>'required',
+            'term_period'=>'required',
+        ]);
 
         $result->name = request('name');
         $result->class = request('class');
@@ -35,6 +43,14 @@ class ResultController extends Controller
     public function update($id){
         $result = Result::findOrFail($id);
 
+        request()->validate([
+            'name'=>'required',
+            'class'=>'required',
+            'results'=>'required',
+            'position'=>'required',
+            'term_period'=>'required',
+        ]);
+        
         $result->name = request('name');
         $result->class = request('class');
         $result->results = request('results');
@@ -64,9 +80,9 @@ class ResultController extends Controller
         $search = request('search');
 
         if($search){
-            $results = Result::where('name','LIKE',"%{$search}%")->paginate(3);
+            $results = Result::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $results = Result::paginate(5);
+            $results = Result::paginate(20);
         }
 
         return view('results.index', compact('results'));

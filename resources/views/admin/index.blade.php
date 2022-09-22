@@ -19,13 +19,17 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="container text-start">
-                                    <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#user-reg-modal">Add</a>
+                                    <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#user-reg-modal">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col text-end">
                                 <form action="{{ route('admin.search') }}" method="get">
                                     <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                    <button type="submit" class="btn btn-success rounded-pill">Search</button> 
+                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                        <i class="fa-solid fa-search"></i>
+                                    </button> 
                                 </form>
                             </div>
                         </div>   
@@ -59,8 +63,10 @@
                                             <td>{{ $user->password }}</td>
                                             <td>{{ $user->role }}</td>
                                             <td>
-                                                <a href="{{ url('/admin_edit/'.$user->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/admin_destroy/'.$user->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/admin_edit/'.$user->id) }}" class="btn btn-outline-primary rounded-pill" >
+                                                    <i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{{ url('/admin_destroy/'.$user->id)}}" class="btn btn-outline-primary rounded-pill" >
+                                                    <i class="fa-solid fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -98,10 +104,13 @@
                                                 <option value="librarian">librarian</option>
                                             </select>
 
+                                            
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success rounded-pill">
-                                                    Submit
-                                                </button>
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>                                               
                                             </div>
                                         </form>
                                     </div> 
