@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow-sm">
-                <div class="card-header">{{ __('Class Scores') }}</div>
+                <div class="card-header">{{ __('Subjects') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,13 +18,15 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="container text-start">
-                                        <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#score-reg-modal">Add</a>
+                                        <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#subject-reg-modal">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col text-end">
-                                    <form action="{{ route('scores.search') }}" method="get">
+                                    <form action="{{ route('subjects.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">Search</button> 
                                     </form>
                                 </div>
                             </div>   
@@ -37,64 +39,49 @@
                             </div>
                         @endif
 
-                        <!-- members registration table -->
                         <div class="container table-responsive">
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Scores</th>
-                                        <th>Term period</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($scores as $score) 
+                                    @foreach ($subjects as $subject) 
                                         <tr>
-                                            <td>{{ $score->name }}</td>
-                                            <td>{!! str_replace("," ,"<br/>", $score->scores ) !!}</td>
-                                            <td>{{ $score->term_period }}</td>
+                                            <td>{{ $subject->name }}</td>
                                             <td>
-                                                <a href="{{ url('/scores_edit/'.$score->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/scores_destroy/'.$score->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/subjects_edit/'.$subject->id) }}" class="btn btn-outline-primary rounded-pill"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="{{ url('/subjects_destroy/'.$subject->id)}}" class="btn btn-outline-primary rounded-pill"><i class="fa-solid fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $scores->onEachSide(1)->links() }}
+                            {{ $subjects->onEachSide(1)->links() }}
                         </div>
                         <!-- registration modal -->
 
-                        <div class="modal fade" id="score-reg-modal" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal fade" id="subject-reg-modal" aria-labelledby="modal-title" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modal-title">Scores</h5>
+                                        <h5 class="modal-title" id="modal-title">Subjects</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('scores.store') }}" method="post">
+                                        <form action="{{ route('subjects.store') }}" method="post">
                                             @csrf
-                                            <label for="name" class="form-label">Class Name:</label>
-                                            <select id="name" class="form-select" name="name" required="True">
-
-                                            @foreach($clases as $clas)
-                                                    <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
-                                            @endforeach
-                                            
-                                            </select>
-
-                                            <label for="scores" class="form-label">Scores:</label>
-                                            <textarea class="form-control" name="scores" id="scores" cols="30" rows="1" ></textarea>
-
-                                            <label for="term_period" class="form-label">Term period:</label>
-                                            <input type="text" class="form-control" id="term_period" name="term_period" required="True">
+                                            <label for="name" class="form-label">Name:</label>
+                                            <input type="text" class="form-control" id="name" name="name" required="True">
 
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success rounded-pill">
-                                                    Submit
-                                                </button>
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div> 

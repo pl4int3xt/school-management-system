@@ -54,7 +54,7 @@
                                     </tbody>
                                 </table>
                                 <button type="submit" class="btn btn-outline-primary rounded-pill">
-                                    Submit
+                                    <i class="fa-solid fa-paper-plane"></i>
                                 </button>
                             </form>
                         </div>

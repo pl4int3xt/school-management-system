@@ -33,16 +33,21 @@
                         <select id="class" class="form-select" name="class" required="True">
 
                         @foreach($clases as $clas)
-                                <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                <option value="{{ $clas->name }}" {{ $clas->name == $teacher->class ? 'selected' : ''}}>{{ $clas->name }}</option>        
                         @endforeach
                                             
                         </select>
 
+                        <br>
                         <div class="modal-footer">
-                            <a href="{{ url('teachers_index') }}" class="btn btn-success rounded-pill">close</a>
-                            <button type="submit" class="btn btn-success rounded-pill">
-                                Update
-                            </button>
+                            <div class="container">
+                                <a href="{{ url('teachers_index') }}" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-times"></i>
+                                </a>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

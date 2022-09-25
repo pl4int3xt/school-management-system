@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('teacher_time_tables', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
             $table->string("subject_name");
             $table->string("time");
             $table->string("class");

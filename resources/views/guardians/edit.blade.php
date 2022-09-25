@@ -26,11 +26,16 @@
                         <label for="student" class="form-label">student:</label>
                         <input type="text" class="form-control" id="student" name="student" required="True" value="{{ $guardian->student }}">
 
+                        <br>
                         <div class="modal-footer">
-                            <a href="{{ url('guardians_index') }}" class="btn btn-success rounded-pill">close</a>
-                            <button type="submit" class="btn btn-success rounded-pill">
-                                Update
-                            </button>
+                            <div class="container">
+                                <a href="{{ url('guardians_index') }}" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-times"></i>
+                                </a>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>                
                         </div>
                     </form>
                 </div>

@@ -13,15 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <!-- search form -->
-                    <!-- <div class="container m-4">
-                                <div class="col text-end">
-                                    <form action="{{ route('guardians_fees.search') }}" method="get">
-                                        <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
-                                    </form>
-                                </div>   
-                    </div> -->
 
                     <div class="container p-0">
                         <div class="container table-responsive">
@@ -51,7 +42,9 @@
                                                     <td>{{ $fee->ref_no }}</td>
                                                     <td>{{ $fee->term_period }}</td>
                                                     <td>
-                                                        <a href="{{ url('/fees_reports_pdf/'.$fee->id)}}"class="btn btn-success rounded-pill">Download</a>
+                                                        <a href="{{ url('/fees_reports_pdf/'.$fee->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                            <i class="fa-solid fa-download"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endif

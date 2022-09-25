@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use App\Models\Result;
+use App\Models\Teacher;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
@@ -12,9 +15,10 @@ class ResultController extends Controller
     }
 
     public function index(){
-        $results = Result::Paginate(20);
+        $teachers = Teacher::All();
+        $students = Student::paginate(20);
 
-        return view('results.index', compact('results'));
+        return view('results.index', compact('students','teachers'));
     }
 
     public function store(){
@@ -23,15 +27,12 @@ class ResultController extends Controller
         request()->validate([
             'name'=>'required',
             'class'=>'required',
-            'results'=>'required',
-            'position'=>'required',
             'term_period'=>'required',
         ]);
 
         $result->name = request('name');
         $result->class = request('class');
         $result->results = request('results');
-        $result->position = request('position');
         $result->term_period = request('term_period');;
         
 
@@ -40,51 +41,24 @@ class ResultController extends Controller
         return redirect('/results_index')->with('mssg','result created successfully');
     }
 
-    public function update($id){
-        $result = Result::findOrFail($id);
-
-        request()->validate([
-            'name'=>'required',
-            'class'=>'required',
-            'results'=>'required',
-            'position'=>'required',
-            'term_period'=>'required',
-        ]);
-        
-        $result->name = request('name');
-        $result->class = request('class');
-        $result->results = request('results');
-        $result->position = request('position');
-        $result->term_period = request('term_period');
-
-        $result->update();
-
-        return redirect('/results_index')->with('mssg','result updated successfully');
-    }
-
-    public function destroy($id){
-        $result = Result::findOrFail($id);
-
-        $result->delete();
-
-        return redirect('/results_index')->with('mssg','result deleted successfully');
-    }
-
     public function edit($id){
-        $result = Result::findOrFail($id);
+        $student = Student::findOrFail($id);
+        $subjects = Subject::All();
 
-        return view('results.edit', compact('result'));
+        return view('results.edit', compact('subjects','student'));
     }
 
     public function search(){
+        $teachers = Teacher::All();
+        $students = Student::paginate(20);
         $search = request('search');
 
         if($search){
-            $results = Result::where('name','LIKE',"%{$search}%")->paginate(20);
+            $students = Student::where('name','LIKE',"%{$search}%")->paginate(20);
         }else{
-            $results = Result::paginate(20);
+            $students = Student::paginate(20);
         }
 
-        return view('results.index', compact('results'));
+        return view('results.index', compact('students','teachers'));
     }
 }

@@ -62,13 +62,23 @@ Route::get('/results_edit/{id}', 'App\Http\Controllers\ResultController@edit')->
 Route::put('/results_update/{id}', 'App\Http\Controllers\ResultController@update')->name('results.update');
 Route::get('/results_search', 'App\Http\Controllers\ResultController@search')->name('results.search');
 
+//all_results routes
+Route::get('/all_results_index', 'App\Http\Controllers\AllResultController@index')->name('all_results.index');
+Route::post('/all_results_store', 'App\Http\Controllers\AllResultController@store')->name('all_results.store');
+Route::get('/all_results_destroy/{id}', 'App\Http\Controllers\AllResultController@destroy')->name('all_results.destroy');
+Route::get('/all_results_edit/{id}', 'App\Http\Controllers\AllResultController@edit')->name('all_results.edit');
+Route::put('/all_results_update/{id}', 'App\Http\Controllers\AllResultController@update')->name('all_results.update');
+Route::get('/all_results_search', 'App\Http\Controllers\AllResultController@search')->name('all_results.search');
+
 //fees routes
 Route::get('/fees_index', 'App\Http\Controllers\FeeController@index')->name('fees.index');
 Route::post('/fees_store', 'App\Http\Controllers\FeeController@store')->name('fees.store');
-Route::get('/fees_destroy/{id}', 'App\Http\Controllers\FeeController@destroy')->name('fees.destroy');
-Route::get('/fees_edit/{id}', 'App\Http\Controllers\FeeController@edit')->name('fees.edit');
-Route::put('/fees_update/{id}', 'App\Http\Controllers\FeeController@update')->name('fees.update');
 Route::get('/fees_search', 'App\Http\Controllers\FeeController@search')->name('fees.search');
+
+//all_fees routes
+Route::get('/all_fees_index', 'App\Http\Controllers\AllFeeController@index')->name('all_fees.index');
+Route::get('/all_fees_destroy/{id}', 'App\Http\Controllers\AllFeeController@destroy')->name('all_fees.destroy');
+Route::get('/all_fees_search', 'App\Http\Controllers\AllFeeController@search')->name('all_fees.search');
 
 //workers routes
 Route::get('/workers_index', 'App\Http\Controllers\WorkerController@index')->name('workers.index');
@@ -98,13 +108,20 @@ Route::get('/projects_search', 'App\Http\Controllers\ProjectController@search')-
 Route::get('/attendances_index', 'App\Http\Controllers\AttendanceController@index')->name('attendances.index');
 Route::post('/attendances_store', 'App\Http\Controllers\AttendanceController@store')->name('attendances.store');
 
-//scores routes
-Route::get('/scores_index', 'App\Http\Controllers\ScoreController@index')->name('scores.index');
-Route::post('/scores_store', 'App\Http\Controllers\ScoreController@store')->name('scores.store');
-Route::get('/scores_destroy/{id}', 'App\Http\Controllers\ScoreController@destroy')->name('scores.destroy');
-Route::get('/scores_edit/{id}', 'App\Http\Controllers\ScoreController@edit')->name('scores.edit');
-Route::put('/scores_update/{id}', 'App\Http\Controllers\ScoreController@update')->name('scores.update');
-Route::get('/scores_search', 'App\Http\Controllers\ScoreController@search')->name('scores.search');
+//all attendances routes
+Route::get('/all_attendances_index', 'App\Http\Controllers\AllAttendanceController@index')->name('all_attendances.index');
+Route::get('/all_attendances_destroy/{id}', 'App\Http\Controllers\AllAttendanceController@destroy')->name('all_attendances.destroy');
+Route::get('/all_attendances_edit/{id}', 'App\Http\Controllers\AllAttendanceController@edit')->name('all_attendances.edit');
+Route::put('/all_attendances_update/{id}', 'App\Http\Controllers\AllAttendanceController@update')->name('all_attendances.update');
+Route::get('/all_attendances_search', 'App\Http\Controllers\AllAttendanceController@search')->name('all_attendances.search');
+
+//subjects routes
+Route::get('/subjects_index', 'App\Http\Controllers\SubjectController@index')->name('subjects.index');
+Route::post('/subjects_store', 'App\Http\Controllers\SubjectController@store')->name('subjects.store');
+Route::get('/subjects_destroy/{id}', 'App\Http\Controllers\SubjectController@destroy')->name('subjects.destroy');
+Route::get('/subjects_edit/{id}', 'App\Http\Controllers\SubjectController@edit')->name('subjects.edit');
+Route::put('/subjects_update/{id}', 'App\Http\Controllers\SubjectController@update')->name('subjects.update');
+Route::get('/subjects_search', 'App\Http\Controllers\SubjectController@search')->name('subjects.search');
 
 //teachers_timetables routes
 Route::get('/teachers_timetables_index', 'App\Http\Controllers\TeacherTimeTableController@index')->name('teachers_timetables.index');
@@ -114,13 +131,16 @@ Route::get('/teachers_timetables_edit/{id}', 'App\Http\Controllers\TeacherTimeTa
 Route::put('/teachers_timetables_update/{id}', 'App\Http\Controllers\TeacherTimeTableController@update')->name('teachers_timetables.update');
 Route::get('/teachers_timetables_search', 'App\Http\Controllers\TeacherTimeTableController@search')->name('teachers_timetables.search');
 
-//teachers_timetables routes
-Route::get('/libraries_index', 'App\Http\Controllers\LibraryController@index')->name('libraries.index');
-Route::post('/libraries_store', 'App\Http\Controllers\LibraryController@store')->name('libraries.store');
-Route::get('/libraries_destroy/{id}', 'App\Http\Controllers\LibraryController@destroy')->name('libraries.destroy');
-Route::get('/libraries_edit/{id}', 'App\Http\Controllers\LibraryController@edit')->name('libraries.edit');
-Route::put('/libraries_update/{id}', 'App\Http\Controllers\LibraryController@update')->name('libraries.update');
-Route::get('/libraries_search', 'App\Http\Controllers\LibraryController@search')->name('libraries.search');
+//books routes
+Route::get('/books_index', 'App\Http\Controllers\BookController@index')->name('books.index');
+Route::post('/books_store', 'App\Http\Controllers\BookController@store')->name('books.store');
+Route::get('/books_search', 'App\Http\Controllers\BookController@search')->name('books.search');
+
+//all_books routes
+Route::get('/all_books_index', 'App\Http\Controllers\AllBookController@index')->name('all_books.index');
+Route::get('/all_books_destroy/{id}', 'App\Http\Controllers\AllBookController@destroy')->name('all_books.destroy');
+Route::get('/all_books_edit/{id}', 'App\Http\Controllers\AllBookController@edit')->name('all_books.edit');
+Route::get('/all_books_search', 'App\Http\Controllers\AllBookController@search')->name('all_books.search');
 
 //clases routes
 Route::get('/clases_index', 'App\Http\Controllers\ClasController@index')->name('clases.index');

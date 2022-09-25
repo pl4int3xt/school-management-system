@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Result extends Model
 {
+    protected $casts = [
+        'results'=>'array',
+    ];
+
     use HasFactory;
 }

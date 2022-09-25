@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow-sm">
-                <div class="card-header">{{ __('Results') }}</div>
+                <div class="card-header">{{ __('Books') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,10 +16,13 @@
                     <!-- search form -->
                     <div class="container m-4">
                             <div class="row">
+                                <div class="col-8">
+                
+                                </div>
                                 <div class="col text-end">
-                                    <form action="{{ route('results.search') }}" method="get">
+                                    <form action="{{ route('all_attendances.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">
                                             <i class="fa-solid fa-search"></i>
                                         </button> 
                                     </form>
@@ -40,28 +43,34 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Class</th>
-                                        <th>Action</th>
+                                        <th>Attendance</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($students as $student)
-                                        @foreach($teachers as $teacher)
-                                            @if( Auth::user()->name == $teacher->name && $teacher->class == $student->class) 
-                                            <tr>
-                                                <td>{{ $student->name }}</td>
-                                                <td>{{ $student->class }}</td>
-                                                <td>
-                                                    <a href="{{ url('/results_edit/'.$student->id) }}" class="btn btn-outline-primary rounded-pill">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                    @foreach ($attendances as $attendance)
+                                        @foreach ($teachers as $teacher)
+                                            @if(Auth::user()->name == $teacher->name && $teacher->class == $attendance->class)
+                                                <tr>
+                                                    <td>{{ $attendance->name }}</td>
+                                                    <td>{{ $attendance->class }}</td>
+                                                    <td>{{ $attendance->attendance }}</td>
+                                                    <td>{{ $attendance->date }}</td>
+                                                    <td>
+                                                        <a href="{{ url('/all_attendances_edit/'.$attendance->id) }}" class="btn btn-outline-primary rounded-pill">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </a>
+                                                        <a href="{{ url('/all_attendances_destroy/'.$attendance->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                             @endif
                                         @endforeach
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $students->onEachSide(1)->links() }}
+                            {{ $attendances->onEachSide(1)->links() }}
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@
                     <div class="container m-4">
                             <div class="row">
                                 <div class="col text-end">
-                                    <form action="{{ route('fees.search') }}" method="get">
+                                    <form action="{{ route('books.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
                                         <button type="submit" class="btn btn-outline-primary rounded-pill">
                                             <i class="fa-solid fa-search"></i>
@@ -36,28 +36,33 @@
 
                         <div class="container table-responsive">
                             @foreach($students as $student)
-                                <form action="{{ url('/fees_store/') }}" method="post">
+                                <form action="{{ url('/books_store/') }}" method="post">
                                     @csrf          
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Fee paid</th>
-                                                <th>Fee payable</th>
-                                                <th>Payment method</th>
-                                                <th>Ref No</th>
-                                                <th>Term period</th>
+                                                <th>Student Name</th>
+                                                <th>Student Adm No</th>
+                                                <th>Book Name</th>
+                                                <th>Day Borrowed</th>
+                                                <th>Return Date</th>
+                                                <th>Returned</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>  
                                             <tr>
-                                                <td><input type="text" class="form-control" name="name" required="True" value="{{ $student->name }}"></td>
-                                                <td><input type="text" class="form-control" id="fee_paid" name="fee_paid" required="True"></td>
-                                                <td><input type="text" class="form-control" id="fee_payable" name="fee_payable" required="True"></td>
-                                                <td><input type="text" class="form-control" id="payment_method" name="payment_method" required="True"></td>
-                                                <td><input type="text" class="form-control" id="ref_no" name="ref_no" required="True"></td>
-                                                <td><input type="text" class="form-control" id="term_period" name="term_period" required="True"></td>
+                                                <td><input type="text" class="form-control" name="student_name" required="True" value="{{ $student->name }}"></td>
+                                                <td><input type="text" class="form-control" name="student_adm_no" required="True" value="{{ $student->adm_no }}"></td>
+                                                <td><input type="text" class="form-control" name="book_name" required="True"></td>
+                                                <td><input type="date" class="form-control" name="day_borrowed" required="True"></td>
+                                                <td><input type="date" class="form-control" name="return_date" required="True"></td>
+                                                <td>
+                                                    <select class="form-select" name="returned" required="False">
+                                                        <option value="true">True</option>
+                                                        <option value="false">False</option>
+                                                    </select>
+                                                </td>
                                                 <td>
                                                     <button type="submit" class="btn btn-outline-primary rounded-pill">
                                                         <i class="fa-solid fa-paper-plane"></i>

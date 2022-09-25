@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("class");
-            $table->string("results");
-            $table->string("position");
+            $table->json("results");
             $table->string("term_period");
+            $table->integer("total");
             $table->timestamps();
         });
     }

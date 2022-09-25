@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow-sm">
-                <div class="card-header">{{ __('Workers') }}</div>
+                <div class="card-header">{{ __('Results') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,17 +18,13 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="container text-start">
-                                        <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#worker-reg-modal">
-                                            <i class="fa-solid fa-add"></i>
-                                        </a>
+                                        <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#result-reg-modal">Add</a>
                                     </div>
                                 </div>
                                 <div class="col text-end">
-                                    <form action="{{ route('workers.search') }}" method="get">
+                                    <form action="{{ route('results.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-outline-primary rounded-pill">
-                                            <i class="fa-solid fa-search"></i>
-                                        </button> 
+                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
                                     </form>
                                 </div>
                             </div>   
@@ -47,63 +43,62 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Contact</th>
-                                        <th>Area of work</th>
-                                        <th>Salary</th>
+                                        <th>Class</th>
+                                        <th>results</th>
+                                        <th>Position</th>
+                                        <th>term period</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($workers as $worker) 
+                                    @foreach ($results as $result) 
                                         <tr>
-                                            <td>{{ $worker->name }}</td>
-                                            <td>{{ $worker->contact }}</td>
-                                            <td>{{ $worker->area_of_work }}</td>
-                                            <td>{{ $worker->salary }}</td>
+                                            <td>{{ $result->name }}</td>
+                                            <td>{{ $result->class }}</td>
+                                            <td>{!! str_replace("," ,"<br/>", $result->results ) !!}</td>
+                                            <td>{{ $result->position }}</td>
+                                            <td>{{ $result->term_period }}</td>
                                             <td>
-                                                <a href="{{ url('/workers_edit/'.$worker->id) }}" class="btn btn-outline-primary rounded-pill">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="{{ url('/workers_destroy/'.$worker->id)}}"class="btn btn-outline-primary rounded-pill">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
+                                                <a href="{{ url('/results_edit/'.$result->id) }}" class="btn btn-success rounded-pill">Edit</a>
+                                                <a href="{{ url('/results_destroy/'.$result->id)}}"class="btn btn-danger rounded-pill">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{ $workers->onEachSide(1)->links() }}
+                            {{ $results->onEachSide(1)->links() }}
                         </div>
                         <!-- registration modal -->
 
-                        <div class="modal fade" id="worker-reg-modal" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal fade" id="result-reg-modal" aria-labelledby="modal-title" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="modal-title">Workers registration</h5>
+                                        <h5 class="modal-title" id="modal-title">Results submission</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="{{ route('workers.store') }}" method="post">
+                                        <form action="{{ route('results.store') }}" method="post">
                                             @csrf
                                             <label for="name" class="form-label">Name:</label>
                                             <input type="text" class="form-control" id="name" name="name" required="True">
 
-                                            <label for="contact" class="form-label">Contact:</label>
-                                            <input type="tel" class="form-control" id="contact" name="contact" required="True">
+                                            <label for="class" class="form-label">class:</label>
+                                            <input type="tel" class="form-control" id="class" name="class" required="True">
 
-                                            <label for="area_of_work" class="form-label">Area of work:</label>
-                                            <input type="text" class="form-control" id="area_of_work" name="area_of_work" required="True">
+                                            <label for="results" class="form-label">Results:</label>
+                                            <textarea class="form-control" name="results" id="results" cols="30" rows="1" ></textarea>
 
-                                            <label for="salary" class="form-label">Salary:</label>
-                                            <input type="text" class="form-control" id="salary" name="salary" required="True">
+                                            <label for="position" class="form-label">position:</label>
+                                            <input type="text" class="form-control" id="position" name="position" required="True">
+
+                                            <label for="term_period" class="form-label">term Period:</label>
+                                            <input type="text" class="form-control" id="term_period" name="term_period" required="True">
 
                                             <div class="modal-footer">
-                                                <div class="container">
-                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
-                                                        <i class="fa-solid fa-paper-plane"></i>
-                                                    </button>
-                                                </div>   
+                                                <button type="submit" class="btn btn-success rounded-pill">
+                                                    Submit
+                                                </button>
                                             </div>
                                         </form>
                                     </div> 

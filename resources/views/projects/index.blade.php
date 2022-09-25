@@ -18,13 +18,17 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="container text-start">
-                                        <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#project-reg-modal">Add</a>
+                                        <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#project-reg-modal">
+                                            <i class="fa-solid fa-add"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col text-end">
                                     <form action="{{ route('projects.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                            <i class="fa-solid fa-search"></i>
+                                        </button> 
                                     </form>
                                 </div>
                             </div>   
@@ -54,8 +58,12 @@
                                             <td>{{ $project->cost }}</td>
                                             <td>{{ $project->other_details }}</td>
                                             <td>
-                                                <a href="{{ url('/projects_edit/'.$project->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/projects_destroy/'.$project->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/projects_edit/'.$project->id) }}" class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="{{ url('/projects_destroy/'.$project->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -85,9 +93,11 @@
                                             <textarea class="form-control" name="other_details" id="other_details" cols="30" rows="1"></textarea>
 
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success rounded-pill">
-                                                    Submit
-                                                </button>
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div> 

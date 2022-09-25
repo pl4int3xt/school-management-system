@@ -26,11 +26,16 @@
                         <label for="term_period" class="form-label">Term period:</label>
                         <input type="text" class="form-control" id="term_period" name="term_period" required="True" value="{{ $teachers_timetable->term_period }}">
 
+                        <br>
                         <div class="modal-footer">
-                            <a href="{{ url('teachers_timetables_index') }}" class="btn btn-success rounded-pill">close</a>
-                            <button type="submit" class="btn btn-success rounded-pill">
-                                Update
-                            </button>
+                            <div class="container">
+                                <a href="{{ url('teachers_timetables_index') }}" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-times"></i>
+                                </a>
+                                <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>

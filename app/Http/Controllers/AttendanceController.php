@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\Attendance;
 use Illuminate\Http\Request;
 use DB;
 
@@ -49,6 +50,6 @@ class AttendanceController extends Controller
             DB::table('attendances')->insert($data);
         }
 
-        return redirect('/attendances_index')->with('mssg','attendance created successfully');
+        return redirect('/attendances_index')->with('mssg','attendance submitted successfully');
     }
 }

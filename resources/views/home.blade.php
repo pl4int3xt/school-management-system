@@ -144,6 +144,23 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="card bg-danger text-white shadow-sm">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h3>Subjects</h3>
+                                        <h3>Total</h3>
+                                        <h4>{{ \App\Models\Subject::all()->count() }}</h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fa fa-user fa-4x" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endif   
@@ -252,7 +269,7 @@
                                     <div class="col-8">
                                         <h3>Books</h3>
                                         <h3>Total</h3>
-                                        <h4>{{ \App\Models\Library::all()->count() }}</h4>
+                                        <h4>{{ \App\Models\Book::all()->count() }}</h4>
                                     </div>
                                     <div class="col-4">
                                         <i class="fa fa-user fa-4x" aria-hidden="true"></i>
@@ -283,23 +300,6 @@
 
             @if(Auth::user()->role == "finance")
                 <div class="row my-4">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="card text-white bg-danger shadow-sm">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h3>Fees</h3>
-                                        <h3>Total</h3>
-                                        <h4>{{ \App\Models\Fee::all()->count() }}</h4>
-                                    </div>
-                                    <div class="col-4">
-                                        <i class="fa fa-user fa-4x" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
                     <div class="col-md-4 col-sm-12">
                         <div class="card text-white bg-success shadow-sm">
                             <div class="card-body card-success">

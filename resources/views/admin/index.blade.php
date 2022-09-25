@@ -50,7 +50,6 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>email</th>
-                                        <th>password</th>
                                         <th>role</th>
                                         <th>Action</th>
                                     </tr>
@@ -60,7 +59,6 @@
                                         <tr>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->password }}</td>
                                             <td>{{ $user->role }}</td>
                                             <td>
                                                 <a href="{{ url('/admin_edit/'.$user->id) }}" class="btn btn-outline-primary rounded-pill" >

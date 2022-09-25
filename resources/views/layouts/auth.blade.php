@@ -16,7 +16,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="p-5 " style="background-color:#E9524A;">
+<body class="p-5 bg-primary">
     <div id="app">
         <main class="py-4">
             @yield('content')

@@ -21,12 +21,14 @@ class TeacherTimeTableController extends Controller
         $teachers_timetable = new TeacherTimeTable();
 
         request()->validate([
+            'name'=>'required',
             'subject_name'=>'required',
             'time'=>'required',
             'class'=>'required',
             'term_period'=>'required',
         ]);
 
+        $teachers_timetable->name = request('name');
         $teachers_timetable->subject_name = request('subject_name');
         $teachers_timetable->time = request('time');        
         $teachers_timetable->class = request('class');
@@ -41,12 +43,14 @@ class TeacherTimeTableController extends Controller
         $teachers_timetable = TeacherTimeTable::findOrFail($id);
 
         request()->validate([
+            'name'=>'required',
             'subject_name'=>'required',
             'time'=>'required',
             'class'=>'required',
             'term_period'=>'required',
         ]);
         
+        $teachers_timetable->name = request('name');
         $teachers_timetable->subject_name = request('subject_name');
         $teachers_timetable->time = request('time');        
         $teachers_timetable->class = request('class');

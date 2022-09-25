@@ -18,13 +18,17 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="container text-start">
-                                        <a href="#" class="btn btn-success rounded-pill" data-bs-toggle="modal" data-bs-target="#teacher_timetable-reg-modal">Add</a>
+                                        <a href="#" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#teacher_timetable-reg-modal">
+                                            <i class="fa-solid fa-add"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col text-end">
                                     <form action="{{ route('teachers_timetables.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">Search</button> 
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                            <i class="fa-solid fa-search"></i>
+                                        </button> 
                                     </form>
                                 </div>
                             </div>   
@@ -57,8 +61,12 @@
                                             <td>{{ $teachers_timetable->class }}</td>
                                             <td>{{ $teachers_timetable->term_period }}</td>
                                             <td>
-                                                <a href="{{ url('/teachers_timetables_edit/'.$teachers_timetable->id) }}" class="btn btn-success rounded-pill">Edit</a>
-                                                <a href="{{ url('/teachers_timetables_destroy/'.$teachers_timetable->id)}}"class="btn btn-danger rounded-pill">Delete</a>
+                                                <a href="{{ url('/teachers_timetables_edit/'.$teachers_timetable->id) }}" class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
+                                                <a href="{{ url('/teachers_timetables_destroy/'.$teachers_timetable->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,6 +86,9 @@
                                     <div class="modal-body">
                                         <form action="{{ route('teachers_timetables.store') }}" method="post">
                                             @csrf
+
+                                            <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+
                                             <label for="subject_name" class="form-label">Subject Name:</label>
                                             <input type="text" class="form-control" id="subject_name" name="subject_name" required="True">
 
@@ -91,9 +102,11 @@
                                             <input type="text" class="form-control" id="term_period" name="term_period" required="True">
 
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success rounded-pill">
-                                                    Submit
-                                                </button>
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div> 

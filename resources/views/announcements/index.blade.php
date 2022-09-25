@@ -89,9 +89,11 @@
                                             </select>
 
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-outline-primary rounded-pill">
-                                                    Submit
-                                                </button>
+                                                <div class="container">
+                                                    <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-paper-plane"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div> 
