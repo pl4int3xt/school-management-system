@@ -38,45 +38,60 @@
                         @endif
 
                         <div class="container table-responsive">
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Position</th>
-                                        <th>Name</th>
-                                        <th>Class</th>
-                                        <th>Term Period</th>
-                                        @foreach($subjects as $subject)
-                                            <th>{{ $subject->name }}</th>
-                                        @endforeach
-                                        <th>Total</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($results as $result)
-                                        @foreach($teachers as $teacher)
-                                            @if( Auth::user()->name == $teacher->name && $teacher->class == $result->class)
-                                                <tr>
-                                                    <td>position</td>
-                                                    <td>{{ $result->name }}</td>
-                                                    <td>{{ $result->class }}</td>
-                                                    <td>{{ $result->term_period }}</td>
-                                                    @foreach($result->results as $res)
-                                                        <td>{{ $res }}</td>
-                                                    @endforeach
-                                                    
-                                                    <td>
-                                                        <a href="{{ url('/all_results_destroy/'.$result->id) }}" class="btn btn-outline-primary rounded-pill">
-                                                            <i class="fa-solid fa-trash"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endif
-                                        @endforeach
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            {{ $results->onEachSide(1)->links() }}
+                        @foreach($results as $result)
+                            @foreach($teachers as $teacher)
+                                @if( Auth::user()->name == $teacher->name && $teacher->class == $result->class)
+                            <form action="{{ url('/all_results_update/'.$result->id) }}" method="post">
+                                @csrf
+                                @method("put")
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Position</th>
+                                            <th>Name</th>
+                                            <th>Class</th>
+                                            <th>Term Period</th>
+                                            @foreach($subjects as $subject)
+                                                <th>{{ $subject->name }}</th>
+                                            @endforeach
+                                            <th>Total subjects</th>
+                                            <th>Total</th>
+                                            <th>Average</th>
+                                            <th>Grade</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                                    <tr>
+                                                        <td><input class="form-control" type="text" name="position" value="{{ $result->position }}"></td>
+                                                        <td>{{ $result->name }}</td>
+                                                        <td>{{ $result->class }}</td>
+                                                        <td>{{ $result->term_period }}</td>
+                                                        @foreach($result->results as $res)
+                                                            <td>{{ $res }}</td>
+                                                        @endforeach
+                                                        <td>{{ $result->total_subjects }}</td>
+                                                        <td>{{ $result->total }}</td>
+                                                        <td>{{ $result->average }}</td>
+                                                        <td>{{ $result->grade }}</td>
+                                                        <td>
+                                                            <a href="{{ url('/all_results_destroy/'.$result->id) }}" class="btn btn-outline-primary rounded-pill">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                            </a>
+                                                            <button type="submit" class="btn btn-outline-primary rounded-pill">
+                                                                <i class="fa-solid fa-paper-plane"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                
+                                    </tbody>
+                                </table>
+                                {{ $results->onEachSide(1)->links() }}
+                            </form>
+                                @endif
+                            @endforeach
+                        @endforeach
                         </div>
                     </div>
                 </div>

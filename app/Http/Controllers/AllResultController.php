@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use App\Models\Subject;
 use App\Models\Result;
+use DB;
 use Illuminate\Http\Request;
 
 class AllResultController extends Controller
@@ -16,8 +17,7 @@ class AllResultController extends Controller
     public function index(){
         $teachers = Teacher::All();  
         $subjects = Subject::All();
-        $results = Result::Paginate(20);
-        
+        $results = Result::orderBy('total','desc')->paginate(20);
 
         return view('all_results.index', compact('subjects','teachers','results'));
     }
@@ -26,16 +26,10 @@ class AllResultController extends Controller
         $result = Result::findOrFail($id);
 
         request()->validate([
-            'name'=>'required',
-            'class'=>'required',
-            'results'=>'required',
-            'term_period'=>'required',
+            'position'=>'required',  
         ]);
         
-        $result->name = request('name');
-        $result->class = request('class');
-        $result->results = request('results');
-        $result->term_period = request('term_period');
+        $result->position = request('position');
 
         $result->update();
 
@@ -56,7 +50,7 @@ class AllResultController extends Controller
         $search = request('search');
 
         if($search){
-            $results = Result::where('term_period','LIKE',"%{$search}%")->paginate(20);
+            $results = Result::where('term_period','LIKE',"%{$search}%")->orderBy('total','desc')->paginate(20);;
         }else{
             $results = Result::paginate(20);
         }

@@ -15,11 +15,15 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
+            $table->string("position")->nullable();
             $table->string("name");
             $table->string("class");
             $table->json("results");
             $table->string("term_period");
-            $table->integer("total");
+            $table->string("total_subjects");
+            $table->string("total");
+            $table->string("average");
+            $table->string("grade");
             $table->timestamps();
         });
     }

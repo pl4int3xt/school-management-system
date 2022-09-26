@@ -38,7 +38,8 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Class</th>
-                                        <th>results</th>
+                                        <th>Position</th>
+                                        <th>Grade</th>
                                         <th>term period</th>
                                         <th>Action</th>
                                     </tr>
@@ -50,10 +51,11 @@
                                                 <tr>
                                                     <td>{{ $result->name }}</td>
                                                     <td>{{ $result->class }}</td>
-                                                    <td>{!! str_replace("," ,"<br/>", $result->results ) !!}</td>
+                                                    <td>{{ $result->position }}</td>
+                                                    <td>{{ $result->grade }}</td>
                                                     <td>{{ $result->term_period }}</td>
                                                     <td>
-                                                        <a href="{{ url('/results_reports_pdf/'.$result->id) }}" class="btn btn-success rounded-pill">
+                                                        <a href="{{ url('/results_reports_pdf/'.$result->id) }}" class="btn btn-outline-primary rounded-pill">
                                                             <i class="fa-solid fa-download"></i>
                                                         </a>
                                                     </td>

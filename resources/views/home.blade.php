@@ -168,23 +168,6 @@
             @if(Auth::user()->role == "teacher")
                 <div class="row my-4">
                     <div class="col-md-4 col-sm-12">
-                        <div class="card text-white bg-success shadow-sm">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <h3>Class Scores</h3>
-                                        <h3>Total</h3>
-                                        <h4>{{ \App\Models\Score::all()->count() }}</h4>
-                                    </div>
-                                    <div class="col-4">
-                                        <i class="fa fa-user fa-4x" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
                         <div class="card text-white bg-danger shadow-sm">
                             <div class="card-body">
                                 <div class="row">
@@ -218,10 +201,8 @@
                         </div>
                         <br>
                     </div>
-                </div>
-                <div class="row my-4">        
                     <div class="col-md-4 col-sm-12">
-                        <div class="card text-white bg-info shadow-sm">
+                        <div class="card text-white bg-success shadow-sm">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">

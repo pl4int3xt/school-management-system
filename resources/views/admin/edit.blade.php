@@ -24,7 +24,8 @@
                         <input type="password" class="form-control" id="password" name="password" required="True" value="{{ $user->password }}">
 
                         <label for="role" class="form-label">Role:</label>
-                        <select id="role" class="form-select" name="role" required="False" selected="{{ $user->role }}">
+                        <select id="role" class="form-select" name="role" required="False" >
+                            <option disabled hidden selected>{{ $user->role }}</option>
                             <option value="admin">Admin</option>
                             <option value="teacher">Teacher</option>
                             <option value="guardian">Guardian</option>

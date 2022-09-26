@@ -27,13 +27,21 @@ class ResultController extends Controller
         request()->validate([
             'name'=>'required',
             'class'=>'required',
+            'total_subjects'=>'required',
+            'total'=>'required',
+            'average'=>'required',
+            'grade'=>'required',
             'term_period'=>'required',
         ]);
 
         $result->name = request('name');
         $result->class = request('class');
         $result->results = request('results');
-        $result->term_period = request('term_period');;
+        $result->total_subjects = request('total_subjects');
+        $result->total = request('total');
+        $result->average = request('average');
+        $result->grade = request('grade');
+        $result->term_period = request('term_period');
         
 
         $result->save();

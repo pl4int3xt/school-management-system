@@ -29,23 +29,51 @@
 
     <h1>School Name</h1>
     <h1>Results Slip</h1>
+    <h1>Student Name: {{ $results_report->name }}</h1>
 
     <table>
-        <tr>
-            <td>Name</td>
-            <td>{{ $results_report->name }}</td>
-        </tr>
         <tr>
             <td>Class</td>
             <td>{{ $results_report->class }}</td>
         </tr>
         <tr>
-            <td>Results</td>
-            <td>{!! str_replace("," ,"<br/>", $results_report->results ) !!}</td>
+            <td>Total subjects</td>
+            <td>{{ $results_report->total_subjects }}</td>
         </tr>
         <tr>
             <td>Term Period</td>
             <td>{{ $results_report->term_period }}</td>
+        </tr>
+    </table>
+    
+    <table>
+        <tr>
+            @foreach($subjects as $subject)
+                <td>{{ $subject->name }}</td>
+            @endforeach
+        </tr>
+        <tr>
+            @foreach($results_report->results as $res)    
+                <td>{{ $res }}</td>
+            @endforeach
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>Position</td>
+            <td>{{ $results_report->position }}</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>{{ $results_report->total }}</td>
+        </tr>
+        <tr>
+            <td>Average</td>
+            <td>{{ $results_report->average }}</td>
+        </tr>
+        <tr>
+            <td>Grade</td>
+            <td>{{ $results_report->grade }}</td>
         </tr>
     </table>
 </body>
