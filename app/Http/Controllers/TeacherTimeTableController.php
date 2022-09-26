@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
+use App\Models\Clas;
 use App\Models\TeacherTimeTable;
 use Illuminate\Http\Request;
 
@@ -12,9 +14,11 @@ class TeacherTimeTableController extends Controller
     }
 
     public function index(){
+        $clases = Clas::All();
+        $subjects = Subject::All();
         $teachers_timetables = TeacherTimeTable::Paginate(20);
 
-        return view('teachers_timetables.index', compact('teachers_timetables'));
+        return view('teachers_timetables.index', compact('teachers_timetables','clases','subjects'));
     }
 
     public function store(){
@@ -70,12 +74,16 @@ class TeacherTimeTableController extends Controller
     }
 
     public function edit($id){
+        $subjects = Subject::All();
+        $clases = Clas::All();
         $teachers_timetable = TeacherTimeTable::findOrFail($id);
 
-        return view('teachers_timetables.edit', compact('teachers_timetable'));
+        return view('teachers_timetables.edit', compact('teachers_timetable','clases','subjects'));
     }
 
     public function search(){
+        $subjects = Subject::All();
+        $clases = Clas::All();
         $search = request('search');
 
         if($search){
@@ -84,6 +92,6 @@ class TeacherTimeTableController extends Controller
             $teachers_timetables = TeacherTimeTable::paginate(20);
         }
 
-        return view('teachers_timetables.index', compact('teachers_timetables'));
+        return view('teachers_timetables.index', compact('teachers_timetables','clases','subjects'));
     }
 }

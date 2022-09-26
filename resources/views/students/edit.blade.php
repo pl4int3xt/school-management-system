@@ -27,9 +27,9 @@
                         <input type="text" class="form-control" id="parent" name="parent" required="True" value="{{ $student->parent }}">
 
                         <label for="dormitory" class="form-label">Dormitory:</label>
-                        <select id="dormitory" class="form-select" name="dormitory" required="True">
+                        <select id="dormitory" class="form-select" name="dormitory">
                             @foreach($dormitories as $dormitory)
-                                    <option value="{{ $dormitory->name }}">{{ $dormitory->name }}</option>        
+                                    <option value="{{ $dormitory->name }}" {{ $dormitory->name  == $student->dormitory ? 'selected' : ''}}>{{ $dormitory->name }}</option>        
                             @endforeach                           
                         </select>
 
@@ -37,7 +37,7 @@
                         <select id="class" class="form-select" name="class" required="True">
 
                         @foreach($clases as $clas)
-                                <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                <option value="{{ $clas->name }}" {{ $clas->name == $student->class ? 'selected' : ''}}>{{ $clas->name }}</option>        
                         @endforeach
                                             
                         </select>

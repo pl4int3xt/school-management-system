@@ -14,14 +14,25 @@
                     <form action="{{ url('/teachers_timetables_update/'.$teachers_timetable->id) }}" method="post">
                         @csrf
                         @method("put")
+                        
+                        <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+
                         <label for="subject_name" class="form-label">Subject Name:</label>
-                        <input type="text" class="form-control" id="subject_name" name="subject_name" required="True" value="{{ $teachers_timetable->subject_name }}">
+                        <select id="subject_name" class="form-select" name="subject_name" required="True">
+                            @foreach($subjects as $subject)
+                                    <option value="{{ $subject->name }}" {{ $subject->name == $teachers_timetable->subject_name ? 'selected' : ''}}>{{ $subject->name }}</option>        
+                            @endforeach
+                        </select>
 
                         <label for="time" class="form-label">Time:</label>
                         <input type="tel" class="form-control" id="time" name="time" required="True" value="{{ $teachers_timetable->time }}">
 
-                        <label for="class" class="form-label">class:</label>
-                        <input type="text" class="form-control" id="class" name="class" required="True" value="{{ $teachers_timetable->class }}">
+                        <label for="class" class="form-label">Class:</label>
+                        <select id="class" class="form-select" name="class" required="True">
+                            @foreach($clases as $clas)
+                                    <option value="{{ $clas->name }}" {{ $clas->name == $teachers_timetable->class ? 'selected' : ''}}>{{ $clas->name }}</option>        
+                            @endforeach
+                        </select>
 
                         <label for="term_period" class="form-label">Term period:</label>
                         <input type="text" class="form-control" id="term_period" name="term_period" required="True" value="{{ $teachers_timetable->term_period }}">

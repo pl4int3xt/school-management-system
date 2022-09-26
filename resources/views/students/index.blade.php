@@ -103,7 +103,7 @@
                                             <input type="text" class="form-control" id="parent" name="parent" required="True">
 
                                             <label for="dormitory" class="form-label">Dormitory:</label>
-                                            <select id="dormitory" class="form-select" name="dormitory" required="True">
+                                            <select id="dormitory" class="form-select" name="dormitory" >
                                                 @foreach($dormitories as $dormitory)
                                                         <option value="{{ $dormitory->name }}">{{ $dormitory->name }}</option>        
                                                 @endforeach 

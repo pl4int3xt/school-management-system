@@ -55,20 +55,22 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($teachers_timetables as $teachers_timetable) 
-                                        <tr>
-                                            <td>{{ $teachers_timetable->subject_name }}</td>
-                                            <td>{{ $teachers_timetable->time }}</td>
-                                            <td>{{ $teachers_timetable->class }}</td>
-                                            <td>{{ $teachers_timetable->term_period }}</td>
-                                            <td>
-                                                <a href="{{ url('/teachers_timetables_edit/'.$teachers_timetable->id) }}" class="btn btn-outline-primary rounded-pill">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="{{ url('/teachers_timetables_destroy/'.$teachers_timetable->id)}}"class="btn btn-outline-primary rounded-pill">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @if (Auth::user()->name == $teachers_timetable->name)
+                                            <tr>
+                                                <td>{{ $teachers_timetable->subject_name }}</td>
+                                                <td>{{ $teachers_timetable->time }}</td>
+                                                <td>{{ $teachers_timetable->class }}</td>
+                                                <td>{{ $teachers_timetable->term_period }}</td>
+                                                <td>
+                                                    <a href="{{ url('/teachers_timetables_edit/'.$teachers_timetable->id) }}" class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </a>
+                                                    <a href="{{ url('/teachers_timetables_destroy/'.$teachers_timetable->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                 </tbody>
                             </table>
@@ -89,14 +91,22 @@
 
                                             <input type="hidden" name="name" value="{{ Auth::user()->name }}">
 
-                                            <label for="subject_name" class="form-label">Subject Name:</label>
-                                            <input type="text" class="form-control" id="subject_name" name="subject_name" required="True">
-
+                                            <label for="subject_name" class="form-label">Subject name:</label>
+                                            <select id="subject_name" class="form-select" name="subject_name" required="True">
+                                                @foreach($subjects as $subject)
+                                                        <option value="{{ $subject->name }}">{{ $subject->name }}</option>        
+                                                @endforeach
+                                            </select>
+                                            
                                             <label for="time" class="form-label">Time:</label>
                                             <input type="tel" class="form-control" id="time" name="time" required="True">
 
                                             <label for="class" class="form-label">Class:</label>
-                                            <input type="text" class="form-control" id="class" name="class" required="True">
+                                            <select id="class" class="form-select" name="class" required="True">
+                                                @foreach($clases as $clas)
+                                                        <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                                @endforeach
+                                            </select>
 
                                             <label for="term_period" class="form-label">Term period:</label>
                                             <input type="text" class="form-control" id="term_period" name="term_period" required="True">

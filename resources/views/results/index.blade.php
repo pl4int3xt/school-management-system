@@ -19,7 +19,7 @@
                                 <div class="col text-end">
                                     <form action="{{ route('results.search') }}" method="get">
                                         <input class="form-control" type="text" name="search" placeholder="search here ....."><br>
-                                        <button type="submit" class="btn btn-success rounded-pill">
+                                        <button type="submit" class="btn btn-outline-primary rounded-pill">
                                             <i class="fa-solid fa-search"></i>
                                         </button> 
                                     </form>

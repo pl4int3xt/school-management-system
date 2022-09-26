@@ -37,8 +37,8 @@
                                 <a href="{{ route('clases.index') }}" class="list-group-item list-group-item-action bg-primary">Classes</a>
                                 <a href="{{ route('dormitories.index') }}" class="list-group-item list-group-item-action bg-primary">Dormitories</a>
                                 <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action bg-primary">Students</a>
-                                <a href="{{ route('teachers.index') }}" class="list-group-item list-group-item-action bg-primary">Teachers</a>
                                 <a href="{{ route('guardians.index') }}" class="list-group-item list-group-item-action bg-primary">Guardians</a>
+                                <a href="{{ route('teachers.index') }}" class="list-group-item list-group-item-action bg-primary">Teachers</a>
                                 <a href="{{ route('subjects.index') }}" class="list-group-item list-group-item-action bg-primary">Subjects</a>
                                 <a href="{{ route('workers.index') }}" class="list-group-item list-group-item-action bg-primary">Workers</a>
                                 <a href="{{ route('announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
@@ -96,11 +96,11 @@
                         <a class="navbar-brand" href="{{ route('students.index')}}">
                             Students 
                         </a>  
-                        <a class="navbar-brand" href="{{ route('teachers.index')}}">
-                            Teachers 
-                        </a>
                         <a class="navbar-brand" href="{{ route('guardians.index')}}">
                             Guardians 
+                        </a>
+                        <a class="navbar-brand" href="{{ route('teachers.index')}}">
+                            Teachers 
                         </a>
                         <a class="navbar-brand" href="{{ route('subjects.index')}}">
                             Subjects 
