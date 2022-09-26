@@ -26,6 +26,13 @@
                         <label for="parent" class="form-label">parent:</label>
                         <input type="text" class="form-control" id="parent" name="parent" required="True" value="{{ $student->parent }}">
 
+                        <label for="dormitory" class="form-label">Dormitory:</label>
+                        <select id="dormitory" class="form-select" name="dormitory" required="True">
+                            @foreach($dormitories as $dormitory)
+                                    <option value="{{ $dormitory->name }}">{{ $dormitory->name }}</option>        
+                            @endforeach                           
+                        </select>
+
                         <label for="class" class="form-label">Class:</label>
                         <select id="class" class="form-select" name="class" required="True">
 

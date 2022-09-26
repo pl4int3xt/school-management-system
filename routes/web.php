@@ -54,6 +54,14 @@ Route::get('/guardians_edit/{id}', 'App\Http\Controllers\GuardianController@edit
 Route::put('/guardians_update/{id}', 'App\Http\Controllers\GuardianController@update')->name('guardians.update');
 Route::get('/guardians_search', 'App\Http\Controllers\GuardianController@search')->name('guardians.search');
 
+//dormitories routes
+Route::get('/dormitories_index', 'App\Http\Controllers\DormitoryController@index')->name('dormitories.index');
+Route::post('/dormitories_store', 'App\Http\Controllers\DormitoryController@store')->name('dormitories.store');
+Route::get('/dormitories_destroy/{id}', 'App\Http\Controllers\DormitoryController@destroy')->name('dormitories.destroy');
+Route::get('/dormitories_edit/{id}', 'App\Http\Controllers\DormitoryController@edit')->name('dormitories.edit');
+Route::put('/dormitories_update/{id}', 'App\Http\Controllers\DormitoryController@update')->name('dormitories.update');
+Route::get('/dormitories_search', 'App\Http\Controllers\DormitoryController@search')->name('dormitories.search');
+
 //results routes
 Route::get('/results_index', 'App\Http\Controllers\ResultController@index')->name('results.index');
 Route::post('/results_store', 'App\Http\Controllers\ResultController@store')->name('results.store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clas;
+use App\Models\Dormitory;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -13,10 +14,11 @@ class StudentController extends Controller
     }
     
     public function index(){
+        $dormitories = Dormitory::All();
         $students = Student::Paginate(20);
         $clases = Clas::all();
 
-        return view('students.index', compact('students','clases'));
+        return view('students.index', compact('students','clases','dormitories'));
     }
 
     public function store(){
@@ -32,6 +34,7 @@ class StudentController extends Controller
 
         $student->name = request('name');
         $student->adm_no = request('adm_no');
+        $student->dormitory = request('dormitory');
         $student->date_of_birth = request('date_of_birth');
         $student->parent = request('parent');
         $student->class = request('class');
@@ -55,6 +58,7 @@ class StudentController extends Controller
         
         $student->name = request('name');
         $student->adm_no = request('adm_no');
+        $student->dormitory = request('dormitory');
         $student->date_of_birth = request('date_of_birth');
         $student->parent = request('parent');
         $student->class = request('class');
@@ -73,13 +77,15 @@ class StudentController extends Controller
     }
 
     public function edit($id){
+        $dormitories = Dormitory::All();
         $student = Student::findOrFail($id);
         $clases = Clas::all();
 
-        return view('students.edit', compact('student','clases'));
+        return view('students.edit', compact('student','clases','dormitories'));
     }
 
     public function search(){
+        $dormitory = Dormitory::All();
         $clases = Clas::all();
         $search = request('search');
 
@@ -89,6 +95,6 @@ class StudentController extends Controller
             $students = Student::paginate(20);
         }
 
-        return view('students.index', compact('students','clases'));
+        return view('students.index', compact('students','clases','dormitory'));
     }
 }

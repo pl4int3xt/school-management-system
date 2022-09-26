@@ -51,6 +51,7 @@
                                         <th>Date of birth</th>
                                         <th>Guardian</th>
                                         <th>class</th>
+                                        <th>Dormitory</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -62,6 +63,7 @@
                                             <td>{{ $student->date_of_birth }}</td>
                                             <td>{{ $student->parent }}</td>
                                             <td>{{ $student->class }}</td>
+                                            <td>{{ $student->dormitory }}</td>
                                             <td>
                                                 <a href="{{ url('/students_edit/'.$student->id) }}" class="btn btn-outline-primary rounded-pill">
                                                     <i class="fa-solid fa-pen-to-square"></i>
@@ -100,13 +102,18 @@
                                             <label for="parent" class="form-label">Parent:</label>
                                             <input type="text" class="form-control" id="parent" name="parent" required="True">
 
+                                            <label for="dormitory" class="form-label">Dormitory:</label>
+                                            <select id="dormitory" class="form-select" name="dormitory" required="True">
+                                                @foreach($dormitories as $dormitory)
+                                                        <option value="{{ $dormitory->name }}">{{ $dormitory->name }}</option>        
+                                                @endforeach 
+                                            </select>
+
                                             <label for="class" class="form-label">Class:</label>
                                             <select id="class" class="form-select" name="class" required="True">
-
-                                            @foreach($clases as $clas)
-                                                    <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
-                                            @endforeach
-                                            
+                                                @foreach($clases as $clas)
+                                                        <option value="{{ $clas->name }}">{{ $clas->name }}</option>        
+                                                @endforeach
                                             </select>
 
                                             <div class="modal-footer">
