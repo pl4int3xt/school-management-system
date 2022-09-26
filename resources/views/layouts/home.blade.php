@@ -56,7 +56,6 @@
 
                             @if(Auth::user()->role == "guardian")
                                 <a href="{{ route('guardians_results.index') }}" class="list-group-item list-group-item-action bg-primary">Results</a>
-                                <a href="{{ route('guardians_scores.index') }}" class="list-group-item list-group-item-action bg-primary">Class Scores</a>
                                 <a href="{{ route('guardians_fees.index') }}" class="list-group-item list-group-item-action bg-primary">Fees</a>
                                 <a href="{{ route('guardians_attendances.index') }}" class="list-group-item list-group-item-action bg-primary">Attendances</a>
                                 <a href="{{ route('guardians_announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
@@ -149,9 +148,6 @@
                     @if(Auth::user()->role == "guardian")
                         <a class="navbar-brand" href="{{ route('guardians_results.index')}}">
                             Results 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('guardians_scores.index')}}">
-                            Class Scores 
                         </a>
                         <a class="navbar-brand" href="{{ route('guardians_fees.index')}}">
                             Fees 

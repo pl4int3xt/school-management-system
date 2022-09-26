@@ -130,7 +130,7 @@
                         <br>
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <div class="card shadow-sm">
+                        <div class="card text-white shadow-sm" style="background-color:#CB4B16">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
@@ -147,7 +147,7 @@
                         <br>
                     </div>
                     <div class="col-md-4 col-sm-12">
-                        <div class="card bg-danger text-white shadow-sm">
+                        <div class="card text-white shadow-sm" style="background-color:#D33682">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-8">
