@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("cost");
-            $table->string("other_details");
+            $table->string("other_details")->nullable();
             $table->timestamps();
         });
     }

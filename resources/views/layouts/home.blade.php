@@ -27,67 +27,246 @@
         <div class="d-flex" id="wrapper" >
 
             <!-- Sidebar -->
-
-            <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <div class="col-auto col-md-3 c0l-xl-2 px-sm-2 px-0 bg-dark">
-                        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                            <a href="" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-nonw"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-                <!-- <div class="bg-primary shadow-sm border-right" id="sidebar-wrapper">
-                    <div class="sidebar-heading bg-primary" >School Logo</div>
+                <div class="bg-dark shadow-sm border-right" id="sidebar-wrapper">
+                    <div class="sidebar-heading bg-dark text-primary" >School Logo</div>
                         <div class="list-group list-group-flush ">
-                            <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-primary">Dashboard</a>
+                            <div class="row container align-items-center">
+                                <div class="col-2 text-primary">
+                                    <i class="fa-solid fa-dashboard fa-2x"></i>
+                                </div>
+                                <div class="col-10">
+                                    <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-dark text-primary">Dashboard</a>
+                                </div>
+                            </div>
 
                             @if(Auth::user()->role == "admin")
-                                <a href="{{ route('admin.index') }}" class="list-group-item list-group-item-action bg-primary">Users</a>
-                                <a href="{{ route('clases.index') }}" class="list-group-item list-group-item-action bg-primary">Classes</a>
-                                <a href="{{ route('dormitories.index') }}" class="list-group-item list-group-item-action bg-primary">Dormitories</a>
-                                <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action bg-primary">Students</a>
-                                <a href="{{ route('guardians.index') }}" class="list-group-item list-group-item-action bg-primary">Guardians</a>
-                                <a href="{{ route('teachers.index') }}" class="list-group-item list-group-item-action bg-primary">Teachers</a>
-                                <a href="{{ route('subjects.index') }}" class="list-group-item list-group-item-action bg-primary">Subjects</a>
-                                <a href="{{ route('workers.index') }}" class="list-group-item list-group-item-action bg-primary">Workers</a>
-                                <a href="{{ route('announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
-                                <a href="{{ route('projects.index') }}" class="list-group-item list-group-item-action bg-primary">Projects</a>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-users fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('admin.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Users</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-university fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('clases.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Classes</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-building fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('dormitories.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Dormitories</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-graduation-cap fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('students.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Students</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-user-friends fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('guardians.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Guardians</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-chalkboard-user fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('teachers.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Teachers</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-book fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('subjects.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Subjects</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-user-friends fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('workers.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Workers</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-bullhorn fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                    <a href="{{ route('announcements.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Announcements</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-diagram-project fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('projects.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Projects</a>
+                                    </div>
+                                </div>
                             @endif
 
                             @if(Auth::user()->role == "teacher")
-                                <a href="{{ route('attendances.index') }}" class="list-group-item list-group-item-action bg-primary">Attendances</a>
-                                <a href="{{ route('all_attendances.index') }}" class="list-group-item list-group-item-action bg-primary">All Attendances</a>
-                                <a href="{{ route('results.index') }}" class="list-group-item list-group-item-action bg-primary">Results</a>
-                                <a href="{{ route('all_results.index') }}" class="list-group-item list-group-item-action bg-primary">All Results</a>
-                                <a href="{{ route('teachers_timetables.index') }}" class="list-group-item list-group-item-action bg-primary">Time table</a>
-                                <a href="{{ route('teachers_announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
+                            <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('attendances.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Attendances</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('all_attendances.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">All Attendances</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list-alt fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('results.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Results</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list-alt fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('all_results.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">All Results</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-calendar fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('teachers_timetables.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Time table</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-bullhorn fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('teachers_announcements.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Announcements</a>
+                                    </div>
+                                </div>
                                 
                             @endif
 
                             @if(Auth::user()->role == "guardian")
-                                <a href="{{ route('guardians_results.index') }}" class="list-group-item list-group-item-action bg-primary">Results</a>
-                                <a href="{{ route('guardians_fees.index') }}" class="list-group-item list-group-item-action bg-primary">Fees</a>
-                                <a href="{{ route('guardians_attendances.index') }}" class="list-group-item list-group-item-action bg-primary">Attendances</a>
-                                <a href="{{ route('guardians_announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
+                            <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list-alt fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('guardians_results.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Results</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-money-bill fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('guardians_fees.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Fees</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('guardians_attendances.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Attendances</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-bullhorn fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('guardians_announcements.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Announcements</a>
+                                    </div>
+                                </div>
                             @endif
 
                             @if(Auth::user()->role == "finance")
-                                <a href="{{ route('fees.index') }}" class="list-group-item list-group-item-action bg-primary">Fees</a>
-                                <a href="{{ route('all_fees.index') }}" class="list-group-item list-group-item-action bg-primary">All Fees</a>
-                                <a href="{{ route('finances_announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
+                            <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-money-bill-1 fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('fees.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Fees</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-money-bill fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('all_fees.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">All Fees</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-bullhorn fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('finances_announcements.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Announcements</a>
+                                    </div>
+                                </div>
                             @endif
 
                             @if(Auth::user()->role == "librarian")
-                                <a href="{{ route('books.index') }}" class="list-group-item list-group-item-action bg-primary">Books</a>
-                                <a href="{{ route('all_books.index') }}" class="list-group-item list-group-item-action bg-primary">All Books</a>
-                                <a href="{{ route('libraries_announcements.index') }}" class="list-group-item list-group-item-action bg-primary">Announcements</a>
+
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list-alt fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('books.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Books</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-list fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('all_books.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">All Books</a>
+                                    </div>
+                                </div>
+                                <div class="row container align-items-center">
+                                    <div class="col-2 text-primary">
+                                        <i class="fa-solid fa-bullhorn fa-2x"></i>
+                                    </div>
+                                    <div class="col-10">
+                                        <a href="{{ route('libraries_announcements.index') }}" class="list-group-item list-group-item-action bg-dark text-primary">Announcements</a>
+                                    </div>
+                                </div>
+
                             @endif
 
                         </div>
-                    </div>     -->
+                    </div>    
             
             <!-- /sidebar-wrapper -->
             <!-- Page Content -->
