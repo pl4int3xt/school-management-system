@@ -17,17 +17,11 @@ class AllBookController extends Controller
         $book = Book::findOrFail($id);
 
         request()->validate([
-            'book_name'=>'required',
-            'student_name'=>'required',
-            'student_adm_no'=>'required',
             'day_borrowed'=>'required',
             'return_date'=>'required',
             'returned'=>'required',
         ]);
         
-        $book->book_name = request('book_name');
-        $book->student_name = request('student_name');
-        $book->student_adm_no = request('student_adm_no');
         $book->day_borrowed = request('day_borrowed');
         $book->return_date = request('return_date');
         $book->returned = request('returned');

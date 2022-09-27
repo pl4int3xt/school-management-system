@@ -30,7 +30,7 @@
                         <input type="date" class="form-control" id="return_date" name="return_date" required="True" value="{{ $book->return_date }}">
 
                         <label for="returned" class="form-label">Returned:</label>
-                        <select id="returned" class="form-select" name="returned" required="False" selected="{{ $book->returned }}">
+                        <select id="returned" class="form-select" name="returned" required>
                             <option value="true">True</option>
                             <option value="false">False</option>
                         </select>

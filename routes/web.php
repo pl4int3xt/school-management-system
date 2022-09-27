@@ -148,6 +148,7 @@ Route::get('/books_search', 'App\Http\Controllers\BookController@search')->name(
 Route::get('/all_books_index', 'App\Http\Controllers\AllBookController@index')->name('all_books.index');
 Route::get('/all_books_destroy/{id}', 'App\Http\Controllers\AllBookController@destroy')->name('all_books.destroy');
 Route::get('/all_books_edit/{id}', 'App\Http\Controllers\AllBookController@edit')->name('all_books.edit');
+Route::put('/all_books_update/{id}', 'App\Http\Controllers\AllBookController@update')->name('all_books.update');
 Route::get('/all_books_search', 'App\Http\Controllers\AllBookController@search')->name('all_books.search');
 
 //clases routes
@@ -196,3 +197,6 @@ Route::get('/results_reports_pdf/{id}', 'App\Http\Controllers\ResultReportContro
 //fees_reports routes
 Route::get('/fees_reports_index/{id}', 'App\Http\Controllers\FeeReportController@index')->name('fees_reports.index');
 Route::get('/fees_reports_pdf/{id}', 'App\Http\Controllers\FeeReportController@generatepdf')->name('fees_reports.generatepdf');
+
+//all_results_report_pdf routes
+Route::get('/all_results_pdf', 'App\Http\Controllers\AllResultController@generatepdf')->name('all_results.generatepdf');
