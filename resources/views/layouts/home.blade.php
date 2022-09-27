@@ -27,7 +27,19 @@
         <div class="d-flex" id="wrapper" >
 
             <!-- Sidebar -->
-                <div class="bg-primary shadow-sm border-right" id="sidebar-wrapper">
+
+            <div class="container-fluid">
+                <div class="row flex-nowrap">
+                    <div class="col-auto col-md-3 c0l-xl-2 px-sm-2 px-0 bg-dark">
+                        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                            <a href="" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-nonw"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- <div class="bg-primary shadow-sm border-right" id="sidebar-wrapper">
                     <div class="sidebar-heading bg-primary" >School Logo</div>
                         <div class="list-group list-group-flush ">
                             <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-primary">Dashboard</a>
@@ -75,7 +87,7 @@
                             @endif
 
                         </div>
-                </div>    
+                    </div>     -->
             
             <!-- /sidebar-wrapper -->
             <!-- Page Content -->
