@@ -16,35 +16,17 @@
             border: 1px solid black;
             border-collapse: collapse;
             padding: 10px;
-        }
-        table{
-            text-align: left;
             width: 100%;
         }
-        tr:nth-child(even){
-            background-color: grey;
-        }
+        
 
     </style>
 
     <h1>School Name</h1>
     <h1>Results Slip</h1>
     <h1>Student Name: {{ $results_report->name }}</h1>
-
-    <table>
-        <tr>
-            <td>Class</td>
-            <td>{{ $results_report->class }}</td>
-        </tr>
-        <tr>
-            <td>Total subjects</td>
-            <td>{{ $results_report->total_subjects }}</td>
-        </tr>
-        <tr>
-            <td>Term Period</td>
-            <td>{{ $results_report->term_period }}</td>
-        </tr>
-    </table>
+    <h1>Class: {{ $results_report->class }}</h1>
+    <h1>Term Period: {{ $results_report->term_period }}</h1>
     
     <table>
         <tr>
@@ -57,11 +39,44 @@
                 <td>{{ $res }}</td>
             @endforeach
         </tr>
+        <tr>
+            @foreach($results_report->results as $res)
+                @if($res >=75 && $res < 101)    
+                    <td>A</td>
+                @elseif($res >=70 && $res < 75)
+                    <td>B+</td>
+                @elseif($res >=65 && $res < 70)
+                    <td>B</td>
+                @elseif($res >=60 && $res < 65)
+                    <td>B-</td>
+                @elseif($res >= 55 && $res < 60)
+                    <td>C+</td>
+                @elseif($res >=50 && $res < 55)
+                    <td>C</td>
+                @elseif($res >=45 && $res < 50)
+                    <td>C-</td>
+                @elseif($res >=40 && $res < 45)
+                    <td>D+</td>
+                @elseif($res >=35 && $res < 40)
+                    <td>D</td>
+                @elseif($res >=30 && $res < 35)
+                    <td>D-</td>
+                @elseif($res >0 && $res < 30)
+                    <td>E</td>
+                @else
+                    <td>Not Applicable</td>
+                @endif
+            @endforeach
+        </tr>
     </table>
     <table>
         <tr>
             <td>Position</td>
             <td>{{ $results_report->position }}</td>
+        </tr>
+        <tr>
+            <td>Total subjects</td>
+            <td>{{ $results_report->total_subjects }}</td>
         </tr>
         <tr>
             <td>Total</td>
