@@ -24,7 +24,7 @@ class ResultReportController extends Controller
         $subjects = Subject::All();
         $results_report = Result::findOrFail($id);
         
-        $pdf = PDF::loadView('results_reports.index', compact('results_report','subjects'));
+        $pdf = PDF::loadView('results_reports.index', compact('results_report','subjects'))->setPaper('a4','landscape');
 
         return $pdf->download('result.pdf');
     }

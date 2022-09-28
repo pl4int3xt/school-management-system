@@ -30,11 +30,8 @@
     <h1>School Name</h1>
     <h1>Fee Statement</h1>
 
+    <h1>Student Name: {{ $fees_report->name }} </h1>
     <table>
-        <tr>
-            <td>Name</td>
-            <td>{{ $fees_report->name }}</td>
-        </tr>
         <tr>
             <td>Fee Paid</td>
             <td>{{ $fees_report->fee_paid }}</td>

@@ -21,7 +21,7 @@ class FeeReportController extends Controller
     public function generatepdf($id){
         $fees_report = Fee::findOrFail($id);
         
-        $pdf = PDF::loadView('fees_reports.index', compact('fees_report'));
+        $pdf = PDF::loadView('fees_reports.index', compact('fees_report'))->setPaper('a4','landscape');
 
         return $pdf->download('fee.pdf');
     }
