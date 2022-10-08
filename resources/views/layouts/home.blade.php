@@ -274,117 +274,115 @@
                 <nav class="navbar sticky-top shadow-sm navbar-expand-md navbar-light bg-white mr-auto">
                     <div class="container">
 
-                    @if(Auth::user()->role == "admin")
-                        <a class="navbar-brand" href="{{ route('admin.index')}}">
-                            Users 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('clases.index')}}">
-                            Classes 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('dormitories.index')}}">
-                            Dormitory
-                        </a>
-                        <a class="navbar-brand" href="{{ route('students.index')}}">
-                            Students 
-                        </a>  
-                        <a class="navbar-brand" href="{{ route('guardians.index')}}">
-                            Guardians 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('teachers.index')}}">
-                            Teachers 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('subjects.index')}}">
-                            Subjects 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('workers.index')}}">
-                            Workers 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('announcements.index')}}">
-                            Announcements 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('projects.index')}}">
-                            Projects 
-                        </a>
-                    @endif
-
-                    @if(Auth::user()->role == "teacher")
-                        <a class="navbar-brand" href="{{ route('attendances.index')}}">
-                            Attendances 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('all_attendances.index')}}">
-                            All Attendances 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('results.index')}}">
-                            Results 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('all_results.index')}}">
-                            All Results 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('teachers_timetables.index')}}">
-                            Time Table 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('teachers_announcements.index')}}">
-                            Announcements
-                        </a>
-                    @endif
-
-                    @if(Auth::user()->role == "finance")
-                        <a class="navbar-brand" href="{{ route('fees.index')}}">
-                            Fees 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('all_fees.index')}}">
-                            All Fees 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('finances_announcements.index')}}">
-                            Announcements
-                        </a>
-                    @endif
-
-                    @if(Auth::user()->role == "guardian")
-                        <a class="navbar-brand" href="{{ route('guardians_results.index')}}">
-                            Results 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('guardians_fees.index')}}">
-                            Fees 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('guardians_attendances.index')}}">
-                            Attendances 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('guardians_announcements.index')}}">
-                            Announcements
-                        </a>
-                    @endif
-
-                    @if(Auth::user()->role == "librarian")
-                        <a class="navbar-brand" href="{{ route('books.index')}}">
-                            Books 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('all_books.index')}}">
-                            All Books 
-                        </a>
-                        <a class="navbar-brand" href="{{ route('libraries_announcements.index')}}">
-                            Announcements
-                        </a>
-                    @endif
-
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <!-- Left Side Of Navbar -->
-                            <ul class="navbar-nav me-auto">
-
-                            </ul>
+                            
 
                             <!-- Right Side Of Navbar -->
-                            <ul class="navbar-nav ms-auto">
-                                    <li class="nav-item dropdown">
-                                        
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
+                            <ul class="navbar-nav ms-left">
+                                    @if(Auth::user()->role == "admin")
+                                        <a class="navbar-brand" href="{{ route('admin.index')}}">
+                                            Users 
                                         </a>
+                                        <a class="navbar-brand" href="{{ route('clases.index')}}">
+                                            Classes 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('dormitories.index')}}">
+                                            Dormitory
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('students.index')}}">
+                                            Students 
+                                        </a>  
+                                        <a class="navbar-brand" href="{{ route('guardians.index')}}">
+                                            Guardians 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('teachers.index')}}">
+                                            Teachers 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('subjects.index')}}">
+                                            Subjects 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('workers.index')}}">
+                                            Workers 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('announcements.index')}}">
+                                            Announcements 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('projects.index')}}">
+                                            Projects 
+                                        </a>
+                                    @endif
 
+                                    @if(Auth::user()->role == "teacher")
+                                        <a class="navbar-brand" href="{{ route('attendances.index')}}">
+                                            Attendances 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('all_attendances.index')}}">
+                                            All Attendances 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('results.index')}}">
+                                            Results 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('all_results.index')}}">
+                                            All Results 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('teachers_timetables.index')}}">
+                                            Time Table 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('teachers_announcements.index')}}">
+                                            Announcements
+                                        </a>
+                                    @endif
+
+                                    @if(Auth::user()->role == "finance")
+                                        <a class="navbar-brand" href="{{ route('fees.index')}}">
+                                            Fees 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('all_fees.index')}}">
+                                            All Fees 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('finances_announcements.index')}}">
+                                            Announcements
+                                        </a>
+                                    @endif
+
+                                    @if(Auth::user()->role == "guardian")
+                                        <a class="navbar-brand" href="{{ route('guardians_results.index')}}">
+                                            Results 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('guardians_fees.index')}}">
+                                            Fees 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('guardians_attendances.index')}}">
+                                            Attendances 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('guardians_announcements.index')}}">
+                                            Announcements
+                                        </a>
+                                    @endif
+
+                                    @if(Auth::user()->role == "librarian")
+                                        <a class="navbar-brand" href="{{ route('books.index')}}">
+                                            Books 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('all_books.index')}}">
+                                            All Books 
+                                        </a>
+                                        <a class="navbar-brand" href="{{ route('libraries_announcements.index')}}">
+                                            Announcements
+                                        </a>
+                                    @endif
+                            </ul>
+                            <ul class="ms-auto navbar-nav">
+                                <li class="nav-item dropdown">
+                                        
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle ms-auto" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
                                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
@@ -396,7 +394,7 @@
                                                 @csrf
                                             </form>
                                         </div>
-                                    </li>
+                                </li>
                             </ul>
                         </div>
                     </div>

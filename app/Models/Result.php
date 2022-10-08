@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Result extends Model
 {
+    protected $fillable = ['results'];
+    
     protected $casts = [
         'results'=>'array',
     ];

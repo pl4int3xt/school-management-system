@@ -16,13 +16,8 @@
             border: 1px solid black;
             border-collapse: collapse;
             padding: 10px;
-        }
-        table{
             text-align: left;
             width: 100%;
-        }
-        tr:nth-child(even){
-            background-color: grey;
         }
 
     </style>
