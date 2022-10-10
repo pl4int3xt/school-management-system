@@ -86,6 +86,8 @@ Route::get('/fees_search', 'App\Http\Controllers\FeeController@search')->name('f
 //all_fees routes
 Route::get('/all_fees_index', 'App\Http\Controllers\AllFeeController@index')->name('all_fees.index');
 Route::get('/all_fees_destroy/{id}', 'App\Http\Controllers\AllFeeController@destroy')->name('all_fees.destroy');
+Route::get('/all_fees_edit/{id}', 'App\Http\Controllers\AllFeeController@edit')->name('all_fees.edit');
+Route::post('/all_fees_update/{id}', 'App\Http\Controllers\AllFeeController@update')->name('all_fees.update');
 Route::get('/all_fees_search', 'App\Http\Controllers\AllFeeController@search')->name('all_fees.search');
 
 //workers routes

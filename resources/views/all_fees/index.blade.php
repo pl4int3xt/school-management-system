@@ -60,6 +60,9 @@
                                             <td>{{ $fee->ref_no }}</td>
                                             <td>{{ $fee->term_period }}</td>
                                             <td>
+                                                <a href="{{ url('/all_fees_edit/'.$fee->id)}}"class="btn btn-outline-primary rounded-pill">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>
                                                 <a href="{{ url('/all_fees_destroy/'.$fee->id)}}"class="btn btn-outline-primary rounded-pill">
                                                     <i class="fa-solid fa-trash"></i>
                                                 </a>
